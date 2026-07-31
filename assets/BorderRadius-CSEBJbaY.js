@@ -1,0 +1,4 @@
+import{i as e}from"./preload-helper-BdFrVu1K.js";import{b as t,c as n,s as r}from"./blocks-luxBmKqJ.js";import{a as i}from"./chunk-W22LQPXL-Dm1c_M1i.js";import{_ as a,c as o,r as s}from"./TokenViewer-Bg-mIBGh.js";function c(e){let n={h1:`h1`,p:`p`,...t(),...e.components};return(0,u.jsxs)(u.Fragment,{children:[(0,u.jsx)(r,{title:`Foundations/Border Radius`}),`
+`,(0,u.jsx)(n.h1,{id:`border-radius`,children:`Border Radius`}),`
+`,(0,u.jsx)(n.p,{children:`Six steps, from a 4px sm corner up to a full circle (999px).`}),`
+`,(0,u.jsx)(s,{})]})}function l(e={}){let{wrapper:n}={...t(),...e.components};return n?(0,u.jsx)(n,{...e,children:(0,u.jsx)(c,{...e})}):c(e)}var u;e((()=>{u=i(),a(),n(),o()}))();export{l as default};
