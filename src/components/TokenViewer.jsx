@@ -7,6 +7,7 @@ import {
   daybreakBlue,
   spacing,
   borderRadius,
+  borderStrength,
   elevationShadows,
   focusRingShadows,
 } from "../tokens";
@@ -135,8 +136,7 @@ export function ThemeTokenGrid({ title, tokens }) {
               <div
                 style={{ fontSize: 11, color: grey["Grey 7"], marginTop: 2 }}
               >
-                Ref: <code>{ref}</code> |{" "}
-                <CopyBadge text={hex}>{hex}</CopyBadge>
+                Ref: <code>{ref}</code> |<CopyBadge text={hex}>{hex}</CopyBadge>
               </div>
             </div>
           </div>
@@ -279,20 +279,71 @@ export function RadiusScale() {
         display: "flex",
         flexWrap: "wrap",
         gap: 24,
-        padding: 8,
+        padding: "16px 0",
         fontFamily,
       }}
     >
-      {borderRadius.map((r) => (
-        <div key={r.token} style={{ width: 140, textAlign: "center" }}>
+      {borderRadius.map((r) => {
+        const isPill = r.token.includes("pill");
+        const displayValue = isPill
+          ? "50%"
+          : r.value >= 999
+            ? "Circle"
+            : `${r.value}px`;
+
+        return (
+          <div key={r.token} style={{ width: 140, textAlign: "center" }}>
+            <div
+              style={{
+                width: 96,
+                height: 96,
+                margin: "0 auto 12px",
+                background: grey["Grey 1"],
+                border: `1px solid ${grey["Grey 5"]}`,
+                borderRadius: isPill ? "50px" : r.value,
+              }}
+            />
+            <div
+              style={{
+                fontSize: 12,
+                fontWeight: 600,
+                color: grey["Grey 9"],
+                marginBottom: 4,
+              }}
+            >
+              <CopyBadge text={r.token}>{r.token}</CopyBadge>
+            </div>
+            <div style={{ fontSize: 12, color: grey["Grey 7"] }}>
+              {displayValue}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+export function StrengthScale() {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: 24,
+        padding: "16px 0",
+        fontFamily,
+      }}
+    >
+      {borderStrength.map((s) => (
+        <div key={s.token} style={{ width: 140, textAlign: "center" }}>
           <div
             style={{
               width: 96,
               height: 96,
               margin: "0 auto 12px",
               background: grey["Grey 1"],
-              border: `1px solid ${grey["Grey 5"]}`,
-              borderRadius: r.value,
+              border: `${s.value}px solid ${grey["Grey 9"]}`,
+              borderRadius: 8,
             }}
           />
           <div
@@ -303,11 +354,9 @@ export function RadiusScale() {
               marginBottom: 4,
             }}
           >
-            <CopyBadge text={r.token}>{r.token}</CopyBadge>
+            <CopyBadge text={s.token}>{s.token}</CopyBadge>
           </div>
-          <div style={{ fontSize: 12, color: grey["Grey 7"] }}>
-            {r.value < 999 ? `${r.value}px` : "Circle"}
-          </div>
+          <div style={{ fontSize: 12, color: grey["Grey 7"] }}>{s.value}px</div>
         </div>
       ))}
     </div>
