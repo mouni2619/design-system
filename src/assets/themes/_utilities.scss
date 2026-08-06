@@ -1,33 +1,12 @@
 // --- Text Utility Tokens ---
-.text-info {
-  color: $blue-600 !important;
-}
-.text-success {
-  color: $green-600 !important;
-}
 .text-error {
   color: $red-600 !important;
-}
-.text-warning {
-  color: $orange-600 !important;
 }
 .text-brand {
   color: $blue-600 !important;
 }
 .text-brand-emphasis-1 {
   color: $blue-700 !important;
-}
-.text-primary {
-  color: $gray-800 !important;
-}
-.text-secondary {
-  color: $gray-700 !important;
-}
-.text-light {
-  color: $gray-100 !important;
-}
-.text-dark {
-  color: $gray-900 !important;
 }
 .text-link {
   color: $blue-600 !important;
@@ -52,45 +31,13 @@
 .border-brand-emphasis-1 {
   border-color: $blue-100 !important;
 }
-.border-info {
-  border-color: $blue-600 !important;
-}
-.border-success {
-  border-color: $green-600 !important;
-}
 .border-error {
   border-color: $red-600 !important;
 }
-.border-warning {
-  border-color: $orange-600 !important;
-}
-
-// --- Border Strength Utilities ---
-.border-strength-1 {
-  border-width: $border-width-1 !important;
-}
-.border-strength-2 {
-  border-width: $border-width-2 !important;
-}
-.border-strength-3 {
-  border-width: $border-width-3 !important;
-}
-.border-strength-4 {
-  border-width: $border-width-4 !important;
-}
-.border-strength-5 {
-  border-width: $border-width-5 !important;
-}
 
 // --- Background Utility Tokens ---
-.bg-light {
-  background-color: $gray-100 !important;
-}
 .bg-black {
   background-color: $black !important;
-}
-.bg-dark {
-  background-color: $gray-800 !important;
 }
 .bg-brand {
   background-color: $blue-600 !important;
@@ -109,9 +56,6 @@
 }
 .bg-brand-emphasis-5 {
   background-color: $blue-700 !important;
-}
-.bg-secondary {
-  background-color: $gray-600 !important;
 }
 .bg-secondary-emphasis-1 {
   background-color: $gray-200 !important;
@@ -298,52 +242,9 @@
 }
 
 // --- Border Radius Utilities ---
-.rounded-sm {
-  border-radius: $border-radius-sm !important;
-}
-.rounded {
-  border-radius: $border-radius !important;
-}
-.rounded-lg {
-  border-radius: $border-radius-lg !important;
-}
 .rounded-xl {
   border-radius: $border-radius-xl !important;
 }
 .rounded-xxl {
   border-radius: $border-radius-xxl !important;
-}
-.rounded-pill {
-  border-radius: $border-radius-pill !important;
-}
-.rounded-circle {
-  border-radius: $border-radius-circle !important;
-}
-
-// --- Elevation Shadow Utilities ---
-.shadow-sm {
-  box-shadow: $box-shadow-sm !important;
-}
-.shadow {
-  box-shadow: $box-shadow !important;
-}
-.shadow-lg {
-  box-shadow: $box-shadow-lg !important;
-}
-
-// --- font weight Utilities ---
-.font-light {
-  font-weight: $font-weight-light !important;
-}
-.font-regular {
-  font-weight: $font-weight-normal !important;
-}
-.font-medium {
-  font-weight: $font-weight-medium !important;
-}
-.font-semibold {
-  font-weight: $font-weight-semibold !important;
-}
-.font-bold {
-  font-weight: $font-weight-bold !important;
 }
