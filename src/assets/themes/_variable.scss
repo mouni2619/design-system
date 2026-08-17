@@ -57,7 +57,7 @@ $gray-600: #bfbfbf;
 $gray-700: #767676;
 $gray-800: #595959;
 $gray-900: #434343;
-$black: #000000;
+$gray-1000: #000000;
 
 //Palettes :: Electric Violet
 $violet-100: #f0e7ff;
@@ -180,7 +180,7 @@ $theme-colors: (
   "info-emp-3": $blue-300,
   "info-emp-5": $blue-500,
   "info-emp-7": $blue-700,
-  "black": $black,
+  "black": $gray-1000,
   "disable-emp-2": $gray-200,
   "disable-emp-6": $gray-600,
 );
@@ -193,15 +193,15 @@ $font-family-base:
   "Segoe UI",
   Roboto,
   sans-serif;
-$font-size-base: 0.75rem;
+$font-size-base: 0.75rem; // 12px
 
-$h1-font-size: 30px;
-$h2-font-size: 24px;
-$h3-font-size: 20px;
-$h4-font-size: 18px;
-$h5-font-size: 16px;
-$h6-font-size: 14px;
-$caption-font-size: 10px;
+$h1-font-size: 30px !important;
+$h2-font-size: 24px !important;
+$h3-font-size: 20px !important;
+$h4-font-size: 18px !important;
+$h5-font-size: 16px !important;
+$h6-font-size: 14px !important;
+$caption-font-size: 10px !default;
 
 $h1-line-height: 36px !default;
 $h2-line-height: 30px !default;
@@ -210,8 +210,8 @@ $h4-line-height: 24px !default;
 $h5-line-height: 22px !default;
 $h6-line-height: 20px !default;
 
-$body-line-height: 18px !default;
-$caption-line-height: 16px !default;
+$body-line-height: 18px !important;
+$caption-line-height: 16px;
 
 $h1-letter-spacing: -0.6px;
 $h2-letter-spacing: -0.4px;
@@ -246,6 +246,13 @@ $spacers: (
   8: $spacing-2xl,
 );
 
+// SCSS Loop for Widths
+@each $key, $value in $spacers {
+  .w-#{$key} {
+    width: $value !important;
+  }
+}
+
 //Border Radius Tokens
 $border-radius-xl: 12px;
 $border-radius-2xl: 16px;
@@ -265,7 +272,7 @@ $headings: (
 );
 
 @each $tag, $properties in $headings {
-  #{$tag} {
+  #{$tag}, .#{$tag} {
     line-height: nth($properties, 1);
     letter-spacing: nth($properties, 2);
   }
@@ -277,10 +284,11 @@ $focus-shadows: (
   "info": $blue-100,
   "success": $green-100,
   "warning": $orange-100,
-  "secondary": $gray-700
+  "secondary": $gray-200
 );
 
 @each $state, $color in $focus-shadows {
+  .shadow-#{$state},
   .shadow-#{$state}:hover,
   .shadow-#{$state}:focus {
     box-shadow: 0 0 0 4px #{$color} !important;
@@ -320,12 +328,14 @@ $custom-border-colors: (
   }
 }
 
-body {
-  letter-spacing: $body-letter-spacing;
+body, .body {
+  font-size: $font-size-base !important;      // 0.75rem (12px)
+  line-height: $body-line-height !important;  // 18px
+  letter-spacing: $body-letter-spacing !important;
 }
 
-caption {
-  font-size: $caption-font-size;
-  line-height: $caption-line-height;
-  letter-spacing: $caption-letter-spacing;
+caption, .caption {
+  font-size: $caption-font-size !important;   // 10px
+  line-height: $caption-line-height !important; // 16px
+  letter-spacing: $caption-letter-spacing !important;
 }

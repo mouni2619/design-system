@@ -1,6 +1,6 @@
 import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs/blocks";
-import { palettes, textTokens, borderTokens, backgroundTokens, iconTokens } from "../tokens";
-import { ThemeTokenGrid } from "../components/TokenViewer";
+import { TextTokens, BackgroundTokens, BorderTokens, Palettes } from "../designTokens";
+import { ThemeTokenGrid } from "../components/TokenVisualizer";
 
 <Meta title="Foundations/Color" />
 
@@ -11,8 +11,13 @@ Organized into base **Palettes** and semantic **Theme Tokens**.
 ## Base Palettes
 
 <ColorPalette>
-  {Object.entries(palettes).map(([name, colors]) => (
-    <ColorItem key={name} title={name} subtitle={`${Object.keys(colors).length} steps`} colors={colors} />
+  {Object.entries(Palettes).map(([name, colors]) => (
+    <ColorItem
+      key={name}
+      title={name}
+      subtitle={`${Object.keys(colors).length} steps`}
+      colors={colors}
+    />
   ))}
 </ColorPalette>
 
@@ -22,7 +27,6 @@ Organized into base **Palettes** and semantic **Theme Tokens**.
 
 Click on any token name or HEX value to copy it directly.
 
-<ThemeTokenGrid title="Text Tokens" tokens={textTokens} />
-<ThemeTokenGrid title="Background Tokens" tokens={backgroundTokens} />
-<ThemeTokenGrid title="Border Tokens" tokens={borderTokens} />
-<ThemeTokenGrid title="Icon Tokens" tokens={iconTokens} />
+<ThemeTokenGrid title="Text Tokens" tokens={TextTokens} />
+<ThemeTokenGrid title="Background Tokens" tokens={BackgroundTokens} />
+<ThemeTokenGrid title="Border Tokens" tokens={BorderTokens} />
