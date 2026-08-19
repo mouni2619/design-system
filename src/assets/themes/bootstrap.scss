@@ -3,10 +3,10 @@
 @import "bootstrap/scss/functions";
 
 // 2. CUSTOM PROJECT VARIABLES & TOKENS
-// Custom theme colors, spacing maps ($spacers), typography tokens, 
+// Custom theme colors, spacing maps ($spacers), typography tokens,
 // shadows, and utility loops loaded before Bootstrap defaults.
-@import "./variable";
-
+@import "@assets/variable";
+@import "@assets/typography";
 
 // 3. BOOTSTRAP SYSTEM MAPS & MIXINS
 // Processes custom variables and merges them into Bootstrap's internal maps.
@@ -14,12 +14,15 @@
 @import "bootstrap/scss/maps";
 @import "bootstrap/scss/mixins";
 
-
 // 4. BASE RESET & GLOBAL STYLES
 // Outputs CSS root variables (:root) and browser resets (body, typography).
 @import "bootstrap/scss/root";
 @import "bootstrap/scss/reboot";
 
+// 5. GRID SYSTEM
+// Bootstrap's responsive grid system (containers, rows, columns).
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
 
 // 5. ESSENTIAL MODULES & UTILITIES ONLY
 // Loads typography (h1-h6) and utility generators for spacing (m-*, p-*),

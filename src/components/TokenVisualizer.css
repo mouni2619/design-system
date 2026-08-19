@@ -1,59 +1,59 @@
-.tv-copy-badge {
-	cursor: pointer;
+.copy-badge {
+  cursor: pointer;
 }
 
-.tv-token-filter-input {
-	max-width: 220px;
+.token-filter-input {
+  max-width: 220px;
 }
 
-.tv-token-card {
-	min-height: 72px;
+.token-card {
+  min-height: 72px;
 }
 
-.tv-color-swatch {
-	width: 45px;
-	height: 45px;
+.color-swatch {
+  width: 45px;
+  height: 45px;
 }
 
-.tv-ref-row,
-.tv-ref-label {
-	font-size: 12px;
+.ref-row,
+.ref-label {
+  font-size: 12px;
 }
 
-.tv-ref-badge {
-	font-size: 11px;
+.ref-badge {
+  font-size: 11px;
 }
 
-.tv-weight-swatch {
-	width: 88px !important;
-	height: 88px !important;
-	font-size: 40px !important;
+.weight-swatch {
+  width: 88px !important;
+  height: 88px !important;
+  font-size: 40px !important;
 }
 
-.tv-space-bar {
-	height: 24px;
+.space-bar {
+  height: 24px;
 }
 
-.tv-scale-item {
-	width: 140px;
+.scale-item {
+  width: 140px;
 }
 
-.tv-radius-box,
-.tv-strength-box {
-	width: 96px;
-	height: 96px;
+.radius-box,
+.strength-box {
+  width: 96px;
+  height: 96px;
 }
 
-.tv-strength-box {
-	border-style: solid;
+.strength-box {
+  border-style: solid;
 }
 
-.tv-shadow-item,
-.tv-focus-item {
-	width: 150px;
+.shadow-item,
+.focus-item {
+  width: 150px;
 }
 
-.tv-shadow-preview,
-.tv-focus-preview {
-	height: 100px;
+.shadow-preview,
+.focus-preview {
+  height: 100px;
 }

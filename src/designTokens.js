@@ -19,7 +19,7 @@ import {
   Sunglow,
   Aquamarine,
   Spray,
-} from "./tokens.js";
+} from "@tokens";
 
 export const TypeScale = [
   {
@@ -167,17 +167,17 @@ export const BorderStrength = [
 
 export const ElevationShadows = [
   {
-    token: "Shadow-sm",
+    token: "shadow-sm",
     value: `0 2px 4px 0 ${Grey["gray-400"]}`,
     usage: "Tooltip, cards, map icons",
   },
   {
-    token: "Shadow",
+    token: "shadow",
     value: `0 4px 8px 0 ${Grey["gray-400"]}`,
     usage: "Dropdowns, popovers, toasts, side panels",
   },
   {
-    token: "Shadow-lg",
+    token: "shadow-lg",
     value: `0 8px 12px 2px ${Grey["gray-400"]}`,
     usage: "Modals",
   },
@@ -185,42 +185,42 @@ export const ElevationShadows = [
 
 export const FocusRingShadows = [
   {
-    token: "Shadow-primary",
+    token: "shadow-primary",
     border: ThemeColors["primary"],
     ref: "DaybreakBlue/100",
     value: `0 0 0 4px ${ThemeColors["primary-emp-1"]}`,
     usage: "Focused panels, module switch cards",
   },
   {
-    token: "Shadow-error",
+    token: "shadow-danger",
     border: ThemeColors["danger"],
     ref: "DustRed/100",
     value: `0 0 0 4px ${ThemeColors["danger-emp-1"]}`,
     usage: "Invalid field focus",
   },
   {
-    token: "Shadow-success",
+    token: "shadow-success",
     border: ThemeColors["success"],
     ref: "PolarGreen/100",
     value: `0 0 0 4px ${ThemeColors["success-emp-1"]}`,
     usage: "Valid field focus",
   },
   {
-    token: "Shadow-warning",
+    token: "shadow-warning",
     border: ThemeColors["warning"],
     ref: "SunsetOrange/100",
     value: `0 0 0 4px ${ThemeColors["warning-emp-1"]}`,
     usage: "Warning field focus",
   },
   {
-    token: "Shadow-info",
+    token: "shadow-info",
     border: ThemeColors["info"],
     ref: "DaybreakBlue/100",
     value: `0 0 0 4px ${ThemeColors["info-emp-1"]}`,
     usage: "Active navigation items",
   },
   {
-    token: "Shadow-secondary",
+    token: "shadow-secondary",
     border: ThemeColors["secondary-emp-5"],
     ref: "Grey/200",
     value: `0 0 0 4px ${ThemeColors["secondary-emp-2"]}`,
@@ -308,6 +308,21 @@ export const BackgroundTokens = [
   ["black", "Grey-1000", ThemeColors["black"]],
   ["disable-emp-2", "Grey-200", ThemeColors["disable-emp-2"]],
   ["disable-emp-6", "Grey-600", ThemeColors["disable-emp-6"]],
+];
+
+export const IconTokens = [
+  ["primary", "Blue-600", ThemeColors["primary"]],
+  ["primary-emp-7", "Blue-700", ThemeColors["primary-emp-7"]],
+  ["secondary", "Grey-700", ThemeColors["secondary"]],
+  ["success", "Green-600", ThemeColors["success"]],
+  ["success-emp-7", "Green-700", ThemeColors["success-emp-7"]],
+  ["danger", "Red-600", ThemeColors["danger"]],
+  ["danger-emp-7", "Red-700", ThemeColors["danger-emp-7"]],
+  ["warning", "Orange-600", ThemeColors["warning"]],
+  ["warning-emp-7", "Orange-700", ThemeColors["warning-emp-7"]],
+  ["info", "Blue-600", ThemeColors["info"]],
+  ["info-emp-7", "Blue-700", ThemeColors["info-emp-7"]],
+  ["white", "Grey-100", ThemeColors["white"]],
 ];
 
 export const FontWeights = [

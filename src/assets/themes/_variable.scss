@@ -203,12 +203,12 @@ $h5-font-size: 16px !important;
 $h6-font-size: 14px !important;
 $caption-font-size: 10px !default;
 
-$h1-line-height: 36px !default;
-$h2-line-height: 30px !default;
-$h3-line-height: 26px !default;
-$h4-line-height: 24px !default;
-$h5-line-height: 22px !default;
-$h6-line-height: 20px !default;
+$h1-line-height: 36px !important;
+$h2-line-height: 30px !important;
+$h3-line-height: 26px !important;
+$h4-line-height: 24px !important;
+$h5-line-height: 22px !important;
+$h6-line-height: 20px !important;
 
 $body-line-height: 18px !important;
 $caption-line-height: 16px;
@@ -263,16 +263,35 @@ $box-shadow: 0 4px 8px 0 $gray-400;
 $box-shadow-lg: 0 8px 12px 2px $gray-400;
 
 $headings: (
-  h1: ($h1-line-height, $h1-letter-spacing),
-  h2: ($h2-line-height, $h2-letter-spacing),
-  h3: ($h3-line-height, $h3-letter-spacing),
-  h4: ($h4-line-height, $h4-letter-spacing),
-  h5: ($h5-line-height, $h5-letter-spacing),
-  h6: ($h6-line-height, $h6-letter-spacing),
+  h1: (
+    $h1-line-height,
+    $h1-letter-spacing,
+  ),
+  h2: (
+    $h2-line-height,
+    $h2-letter-spacing,
+  ),
+  h3: (
+    $h3-line-height,
+    $h3-letter-spacing,
+  ),
+  h4: (
+    $h4-line-height,
+    $h4-letter-spacing,
+  ),
+  h5: (
+    $h5-line-height,
+    $h5-letter-spacing,
+  ),
+  h6: (
+    $h6-line-height,
+    $h6-letter-spacing,
+  ),
 );
 
 @each $tag, $properties in $headings {
-  #{$tag}, .#{$tag} {
+  #{$tag},
+  .#{$tag} {
     line-height: nth($properties, 1);
     letter-spacing: nth($properties, 2);
   }
@@ -284,7 +303,7 @@ $focus-shadows: (
   "info": $blue-100,
   "success": $green-100,
   "warning": $orange-100,
-  "secondary": $gray-200
+  "secondary": $gray-200,
 );
 
 @each $state, $color in $focus-shadows {
@@ -297,7 +316,7 @@ $focus-shadows: (
 
 $custom-text-colors: (
   "body": $gray-800,
-  "disable": $gray-600
+  "disable": $gray-600,
 );
 
 @each $name, $color in $custom-text-colors {
@@ -308,7 +327,7 @@ $custom-text-colors: (
 
 $custom-bg-colors: (
   "body": $gray-100,
-  "disable": $gray-300
+  "disable": $gray-300,
 );
 
 @each $name, $color in $custom-bg-colors {
@@ -319,23 +338,11 @@ $custom-bg-colors: (
 
 $custom-border-colors: (
   "default": $gray-500,
-  "border-disable": $gray-500
+  "border-disable": $gray-500,
 );
 
 @each $name, $color in $custom-border-colors {
   .#{$name} {
     border-color: $color !important;
   }
-}
-
-body, .body {
-  font-size: $font-size-base !important;      // 0.75rem (12px)
-  line-height: $body-line-height !important;  // 18px
-  letter-spacing: $body-letter-spacing !important;
-}
-
-caption, .caption {
-  font-size: $caption-font-size !important;   // 10px
-  line-height: $caption-line-height !important; // 16px
-  letter-spacing: $caption-letter-spacing !important;
 }

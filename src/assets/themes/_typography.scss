@@ -1,0 +1,13 @@
+body,
+.body {
+  font-size: $font-size-base !important;
+  line-height: $body-line-height !important;
+  letter-spacing: $body-letter-spacing !important;
+}
+
+caption,
+.caption {
+  font-size: $caption-font-size !important;
+  line-height: $caption-line-height !important;
+  letter-spacing: $caption-letter-spacing !important;
+}
