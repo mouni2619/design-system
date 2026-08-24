@@ -1,46 +1,48 @@
 import { Meta } from "@storybook/addon-docs/blocks";
-import { WeightSwatches, StyleMatrix } from "@components/TokenVisualizer";
-import { TypeScale } from "@design-tokens";
+import { WeightSwatches, StyleMatrix, TypographyColorTable } from "../docs/specimens";
+import { typeScale } from "../theme/theme";
 
 <Meta title="Foundations/Typography" />
 
 # Typography
 
-Font family — **Inter**.
+Font family — **Inter**. Weights — 300 Light, 400 Regular, 500 Medium, 600 Semibold, 700 Bold.
 
-## Font Scale & Metrics
+## Scale
 
-<div className="my-3 table-responsive">
-  <table className="table table-bordered table-hover align-middle mb-0">
-    <thead className="table-light">
-      <tr>
-        <th scope="col" className="text-dark">Token</th>
-        <th scope="col" className="text-dark">Font size</th>
-        <th scope="col" className="text-dark">Line height</th>
-        <th scope="col" className="text-dark">Letter spacing</th>
+<div style={{ maxWidth: 720, margin: "16px 0 32px" }}>
+  <table style={{ width: "100%", borderCollapse: "collapse" }}>
+    <thead>
+      <tr style={{ textAlign: "left", borderBottom: "2px solid #d9d9d9" }}>
+        <th style={{ padding: "8px 12px", fontSize: 12, color: "#595959" }}>Step</th>
+        <th style={{ padding: "8px 12px", fontSize: 12, color: "#595959" }}>Font size</th>
+        <th style={{ padding: "8px 12px", fontSize: 12, color: "#595959" }}>Line height</th>
+        <th style={{ padding: "8px 12px", fontSize: 12, color: "#595959" }}>Tracking</th>
       </tr>
     </thead>
     <tbody>
-      {TypeScale.map((t) => (
-        <tr key={t.token}>
-          <td className="fw-semibold text-dark">{t.token}</td>
-          <td className="text-secondary">{t.fontSize}px</td>
-          <td className="text-secondary">{t.lineHeight}px</td>
-          <td className="text-secondary">{t.letterSpacing}px</td>
+      {typeScale.map(({ token, fontSize, lineHeight, letterSpacing }) => (
+        <tr key={token} style={{ borderBottom: "1px solid #f0f0f0" }}>
+          <td style={{ padding: "8px 12px", fontSize: 13, fontWeight: 600 }}>{token}</td>
+          <td style={{ padding: "8px 12px", fontSize: 12, color: "#595959" }}>{fontSize}px</td>
+          <td style={{ padding: "8px 12px", fontSize: 12, color: "#595959" }}>{lineHeight}px</td>
+          <td style={{ padding: "8px 12px", fontSize: 12, color: "#595959" }}>{letterSpacing}px</td>
         </tr>
       ))}
     </tbody>
   </table>
 </div>
 
----
-
-## Font Weight
+## Weights
 
 <WeightSwatches />
 
----
+## Style matrix
 
-## Styles Matrix
+Every type-scale step rendered at all five weights.
 
 <StyleMatrix />
+
+## Typography colours
+
+<TypographyColorTable />

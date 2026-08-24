@@ -1,16 +1,18 @@
 import { Meta } from "@storybook/addon-docs/blocks";
-import { ElevationShadow, FocusRingShadow } from "@components/TokenVisualizer";
+import { ElevationShadows, FocusRingShadows } from "../docs/specimens";
 
 <Meta title="Foundations/Shadows" />
 
-# Shadows & Focus Rings
+# Shadows
 
-## Elevation Shadows
+## Elevation shadows
 
-<ElevationShadow />
+Three soft drop shadows for layering: `Shadow-sm` (cards), `Shadow-md` (dropdowns/drawers), `Shadow-lg` (modals).
 
----
+<ElevationShadows />
 
-## Focus Ring Shadows
+## Focus-ring shadows
 
-<FocusRingShadow />
+Six 4px focus halos, each using emphasis-1 of its colour ramp and paired with the matching border token.
+
+<FocusRingShadows />

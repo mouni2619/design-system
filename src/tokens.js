@@ -1,6 +1,11 @@
 /**
  * Mandark Design System V1.0 — Design Tokens
+ * Global Single Source of Truth
  */
+
+/* ------------------------------------------------------------------ *
+ * 1. Base Palettes (11 ramps x 10 steps)
+ * ------------------------------------------------------------------ */
 
 export const DaybreakBlue = {
   "blue-100": "#e6f7ff",
@@ -55,7 +60,7 @@ export const PolarGreen = {
 };
 
 export const Grey = {
-  "white": "#ffffff",
+  white: "#ffffff",
   "gray-100": "#ffffff",
   "gray-200": "#fafafa",
   "gray-300": "#f5f5f5",
@@ -146,10 +151,27 @@ export const Spray = {
   "spray-1000": "#00404d",
 };
 
-// 2. THEME COLORS (Mapped directly from above Base Colors)
+export const Palettes = {
+  "Daybreak Blue": DaybreakBlue,
+  "Dust Red": DustRed,
+  "Sunset Orange": SunsetOrange,
+  "Polar Green": PolarGreen,
+  Grey: Grey,
+  "Electric Violet": ElectricViolet,
+  "Medium Purple": MediumPurple,
+  "Brilliant Rose": BrilliantRose,
+  Sunglow: Sunglow,
+  Aquamarine: Aquamarine,
+  Spray: Spray,
+};
+
+/* ------------------------------------------------------------------ *
+ * 2. Theme Colors (Kebab-case Semantic Tokens)
+ * ------------------------------------------------------------------ */
+
 export const ThemeColors = {
   // Primary (Blue)
-  "primary": DaybreakBlue["blue-600"],
+  primary: DaybreakBlue["blue-600"],
   "primary-emp-1": DaybreakBlue["blue-100"],
   "primary-emp-2": DaybreakBlue["blue-200"],
   "primary-emp-3": DaybreakBlue["blue-300"],
@@ -157,7 +179,7 @@ export const ThemeColors = {
   "primary-emp-7": DaybreakBlue["blue-700"],
 
   // Secondary (Grey)
-  "secondary": Grey["gray-700"],
+  secondary: Grey["gray-700"],
   "secondary-emp-2": Grey["gray-200"],
   "secondary-emp-3": Grey["gray-300"],
   "secondary-emp-4": Grey["gray-400"],
@@ -166,7 +188,7 @@ export const ThemeColors = {
   "secondary-emp-8": Grey["gray-800"],
 
   // Success (Green)
-  "success": PolarGreen["green-600"],
+  success: PolarGreen["green-600"],
   "success-emp-1": PolarGreen["green-100"],
   "success-emp-2": PolarGreen["green-200"],
   "success-emp-3": PolarGreen["green-300"],
@@ -174,7 +196,7 @@ export const ThemeColors = {
   "success-emp-7": PolarGreen["green-700"],
 
   // Danger (Red)
-  "danger": DustRed["red-600"],
+  danger: DustRed["red-600"],
   "danger-emp-1": DustRed["red-100"],
   "danger-emp-2": DustRed["red-200"],
   "danger-emp-3": DustRed["red-300"],
@@ -182,7 +204,7 @@ export const ThemeColors = {
   "danger-emp-7": DustRed["red-700"],
 
   // Warning (Orange)
-  "warning": SunsetOrange["orange-600"],
+  warning: SunsetOrange["orange-600"],
   "warning-emp-1": SunsetOrange["orange-100"],
   "warning-emp-2": SunsetOrange["orange-200"],
   "warning-emp-3": SunsetOrange["orange-300"],
@@ -190,12 +212,12 @@ export const ThemeColors = {
   "warning-emp-7": SunsetOrange["orange-700"],
 
   // Link
-  "link": DaybreakBlue["blue-600"],
+  link: DaybreakBlue["blue-600"],
   "link-emp-5": DaybreakBlue["blue-500"],
   "link-emp-7": DaybreakBlue["blue-700"],
 
   // Info
-  "info": DaybreakBlue["blue-600"],
+  info: DaybreakBlue["blue-600"],
   "info-emp-1": DaybreakBlue["blue-100"],
   "info-emp-2": DaybreakBlue["blue-200"],
   "info-emp-3": DaybreakBlue["blue-300"],
@@ -205,9 +227,23 @@ export const ThemeColors = {
   // Disabled & Neutral
   "disable-emp-2": Grey["gray-200"],
   "disable-emp-6": Grey["gray-600"],
-  "black": Grey["gray-1000"],
-  "white": Grey["gray-100"],
+  black: Grey["gray-1000"],
+  white: Grey["gray-100"],
 };
+
+export const NeutralColors = {
+  default: Grey["gray-800"],
+  dark: Grey["gray-900"],
+  light: Grey["gray-100"],
+  black: Grey["gray-1000"],
+  disable: Grey["gray-600"],
+  "disable-emp-2": Grey["gray-200"],
+  "disable-emp-6": Grey["gray-600"],
+};
+
+/* ------------------------------------------------------------------ *
+ * 3. Typography Scale & Metrics
+ * ------------------------------------------------------------------ */
 
 export const FontSize = {
   h1: 30,
@@ -242,7 +278,7 @@ export const LetterSpacing = {
   caption: 0,
 };
 
-export const FontFamily = 
+export const FontFamily =
   "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
 
 export const FontWeight = {
@@ -253,7 +289,10 @@ export const FontWeight = {
   bold: 700,
 };
 
-// Raw Spacing Values
+/* ------------------------------------------------------------------ *
+ * 4. Layout, Spacing, Border & Shadows
+ * ------------------------------------------------------------------ */
+
 export const SpaceTokens = {
   "3xs": 4,
   "2xs": 8,
@@ -265,7 +304,6 @@ export const SpaceTokens = {
   "2xl": 32,
 };
 
-// Raw Border Radius Values
 export const RadiusTokens = {
   sm: 4,
   md: 6,
@@ -276,11 +314,28 @@ export const RadiusTokens = {
   circle: 999,
 };
 
-// Raw Border Widths
 export const BorderWidthTokens = {
   1: 1,
   2: 2,
   3: 3,
   4: 4,
   5: 5,
+};
+
+export const ElevationShadows = {
+  sm: `0 2px 4px 0 ${Grey["gray-400"]}`,
+  md: `0 4px 8px 0 ${Grey["gray-400"]}`,
+  lg: `0 8px 12px 2px ${Grey["gray-400"]}`,
+};
+
+export const FocusRingShadows = {
+  primary: { border: ThemeColors.primary, value: `0 0 0 4px ${ThemeColors["primary-emp-1"]}` },
+  danger: { border: ThemeColors.danger, value: `0 0 0 4px ${ThemeColors["danger-emp-1"]}` },
+  success: { border: ThemeColors.success, value: `0 0 0 4px ${ThemeColors["success-emp-1"]}` },
+  warning: { border: ThemeColors.warning, value: `0 0 0 4px ${ThemeColors["warning-emp-1"]}` },
+  info: { border: ThemeColors.info, value: `0 0 0 4px ${ThemeColors["info-emp-1"]}` },
+  secondary: {
+    border: ThemeColors["secondary-emp-5"],
+    value: `0 0 0 4px ${ThemeColors["secondary-emp-2"]}`,
+  },
 };
