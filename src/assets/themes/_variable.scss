@@ -48,16 +48,16 @@ $green-1000: #092b00;
 
 //Palettes :: Grey
 $white: #ffffff;
-$gray-100: #ffffff; // Grey 1
-$gray-200: #fafafa; // Grey 2
-$gray-300: #f5f5f5; // Grey 3
-$gray-400: #f0f0f0; // Grey 4
-$gray-500: #d9d9d9; // Grey 5
-$gray-600: #bfbfbf; // Grey 6
-$gray-700: #767676; // Grey 7
-$gray-800: #595959; // Grey 8
-$gray-900: #434343; // Grey 9
-$black: #000000;    // Grey 10
+$gray-100: #ffffff;
+$gray-200: #fafafa;
+$gray-300: #f5f5f5;
+$gray-400: #f0f0f0;
+$gray-500: #d9d9d9;
+$gray-600: #bfbfbf;
+$gray-700: #767676;
+$gray-800: #595959;
+$gray-900: #434343;
+$gray-1000: #000000;
 
 //Palettes :: Electric Violet
 $violet-100: #f0e7ff;
@@ -139,92 +139,101 @@ $red: $red-600;
 $light: $gray-100;
 $dark: $gray-800;
 
-$primary: $blue-600;
-$secondary: $gray-600;
-$success: $green-600;
-$danger: $red-600;
-$warning: $orange-600;
-$info: $blue-600;
-$link: $blue-600;
-$disabled: $gray-600;
-
 $theme-colors: (
-  "primary": $primary,
-  "secondary": $secondary,
-  "success": $success,
-  "danger": $danger,
-  "warning": $warning,
-  "info": $info,
-  "light": $light,
-  "dark": $dark
+  "primary": $blue-600,
+  "primary-emp-1": $blue-100,
+  "primary-emp-2": $blue-200,
+  "primary-emp-3": $blue-300,
+  "primary-emp-5": $blue-500,
+  "primary-emp-7": $blue-700,
+  "secondary": $gray-700,
+  "secondary-emp-2": $gray-200,
+  "secondary-emp-3": $gray-300,
+  "secondary-emp-4": $gray-400,
+  "secondary-emp-5": $gray-500,
+  "secondary-emp-6": $gray-600,
+  "secondary-emp-8": $gray-800,
+  "success": $green-600,
+  "success-emp-1": $green-100,
+  "success-emp-2": $green-200,
+  "success-emp-3": $green-300,
+  "success-emp-5": $green-500,
+  "success-emp-7": $green-700,
+  "danger": $red-600,
+  "danger-emp-1": $red-100,
+  "danger-emp-2": $red-200,
+  "danger-emp-3": $red-300,
+  "danger-emp-5": $red-500,
+  "danger-emp-7": $red-700,
+  "warning": $orange-600,
+  "warning-emp-1": $orange-100,
+  "warning-emp-2": $orange-200,
+  "warning-emp-3": $orange-300,
+  "warning-emp-5": $orange-500,
+  "warning-emp-7": $orange-700,
+  "link": $blue-600,
+  "link-emp-5": $blue-500,
+  "link-emp-7": $blue-700,
+  "info": $blue-600,
+  "info-emp-1": $blue-100,
+  "info-emp-2": $blue-200,
+  "info-emp-3": $blue-300,
+  "info-emp-5": $blue-500,
+  "info-emp-7": $blue-700,
+  "black": $gray-1000,
+  "disable-emp-2": $gray-200,
+  "disable-emp-6": $gray-600,
 );
 
-// Hover & Active States
-$primary-hover: $blue-500 !default;
-$primary-active: $blue-700 !default;
-$secondary-hover: $gray-500 !default;
-$secondary-active: $gray-700 !default;
-$success-hover: $green-500 !default;
-$success-active: $green-700 !default;
-$danger-hover: $red-500 !default;
-$danger-active: $red-700 !default;
-$warning-hover: $orange-500 !default;
-$warning-active: $orange-700 !default;
-$info-hover: $blue-500 !default;
-$info-active: $blue-700 !default;
-
 //Typography Tokens
-$font-family-base: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-$font-size-base: 0.75rem; // 12px (Body token)
-$line-height-base: 1.5;
-$link-color: $blue-600;
-$link-hover-color: $blue-500;
+$font-family-base:
+  "Inter",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  sans-serif;
+$font-size-base: 0.75rem; // 12px
 
-$h1-font-size: 30px;
-$h2-font-size: 24px;
-$h3-font-size: 20px;
-$h4-font-size: 18px;
-$h5-font-size: 16px;
-$h6-font-size: 14px;
-$caption-font-size: 10px;
+$h1-font-size: 30px !important;
+$h2-font-size: 24px !important;
+$h3-font-size: 20px !important;
+$h4-font-size: 18px !important;
+$h5-font-size: 16px !important;
+$h6-font-size: 14px !important;
+$caption-font-size: 10px !default;
 
-$line-height-36: 36px !default;
-$line-height-30: 30px !default;
-$line-height-26: 26px !default;
-$line-height-24: 24px !default;
-$line-height-22: 22px !default;
-$line-height-20: 20px !default;
-$line-height-18: 18px !default;
-$line-height-16: 16px !default;
+$h1-line-height: 36px !important;
+$h2-line-height: 30px !important;
+$h3-line-height: 26px !important;
+$h4-line-height: 24px !important;
+$h5-line-height: 22px !important;
+$h6-line-height: 20px !important;
 
-$font-weight-light: 300;
-$font-weight-normal: 400;
-$font-weight-medium: 500;
-$font-weight-semibold: 600;
-$font-weight-bold: 700;
+$body-line-height: 18px !important;
+$caption-line-height: 16px;
 
-$font-weight-base: $font-weight-normal;
-
-$page-title-color: $gray-900;
-$headings-color: $page-title-color;
-$primary-text-color: $gray-800;
-$secondary-text-color: $gray-700;
-$disabled-text-color: $gray-600;
-$body-bg: $white;
-$body-color: $primary-text-color;
+$h1-letter-spacing: -0.6px;
+$h2-letter-spacing: -0.4px;
+$h3-letter-spacing: -0.2px;
+$h4-letter-spacing: 0;
+$h5-letter-spacing: 0;
+$h6-letter-spacing: 0;
+$body-letter-spacing: 0;
+$caption-letter-spacing: 0;
 
 //Spacing Tokens
 $spacing-0: 0 !default;
-$spacing-3xs: 4px !default;  // Space-3xs
-$spacing-2xs: 8px !default;  // Space-2xs
-$spacing-xs: 12px !default;  // Space-xs
-$spacing-sm: 16px !default;  // Space-sm
-$spacing-md: 20px !default;  // Space-md
-$spacing-lg: 24px !default;  // Space-lg
-$spacing-xl: 28px !default;  // Space-xl
-$spacing-2xl: 32px !default; // Space-2xl
+$spacing-3xs: 4px !default;
+$spacing-2xs: 8px !default;
+$spacing-xs: 12px !default;
+$spacing-sm: 16px !default;
+$spacing-md: 20px !default;
+$spacing-lg: 24px !default;
+$spacing-xl: 28px !default;
+$spacing-2xl: 32px !default;
 
-// Spacing Map (Bootstrap Override)
+// Spacing Map
 $spacers: (
   0: $spacing-0,
   1: $spacing-3xs,
@@ -234,145 +243,106 @@ $spacers: (
   5: $spacing-md,
   6: $spacing-lg,
   7: $spacing-xl,
-  8: $spacing-2xl
+  8: $spacing-2xl,
 );
 
-//Border Radius Tokens
-$border-radius-sm: 4px;
-$border-radius: 6px; // border-radius-md
-$border-radius-lg: 8px;
-$border-radius-xl: 12px;
-$border-radius-xxl: 16px;
-$border-radius-pill: 50px;
-$border-radius-circle: 999px;
+// SCSS Loop for Widths
+@each $key, $value in $spacers {
+  .w-#{$key} {
+    width: $value !important;
+  }
+}
 
-//Border Strength Tokens
-$border-width-1: 1px;
-$border-width-2: 2px;
-$border-width-3: 3px;
-$border-width-4: 4px;
-$border-width-5: 5px;
-$border-width: $border-width-1;
+//Border Radius Tokens
+$border-radius-xl: 12px;
+$border-radius-2xl: 16px;
 
 //Elevation Shadows
 $box-shadow-sm: 0 2px 4px 0 $gray-400;
-$box-shadow: 0 4px 8px 0 $gray-400;      // Shadow-md
-$box-shadow-lg: 0 8px 12px 2px $gray-400; // Shadow-lg
+$box-shadow: 0 4px 8px 0 $gray-400;
+$box-shadow-lg: 0 8px 12px 2px $gray-400;
 
-//Focus Ring Shadows
-$focus-ring-primary: 0 0 0 4px $blue-100;
-$focus-ring-error: 0 0 0 4px $red-100;
-$focus-ring-success: 0 0 0 4px $green-100;
-$focus-ring-warning: 0 0 0 4px $orange-100;
-$focus-ring-info: 0 0 0 4px $blue-100;
-$focus-ring-secondary: 0 0 0 4px $gray-200;
+$headings: (
+  h1: (
+    $h1-line-height,
+    $h1-letter-spacing,
+  ),
+  h2: (
+    $h2-line-height,
+    $h2-letter-spacing,
+  ),
+  h3: (
+    $h3-line-height,
+    $h3-letter-spacing,
+  ),
+  h4: (
+    $h4-line-height,
+    $h4-letter-spacing,
+  ),
+  h5: (
+    $h5-line-height,
+    $h5-letter-spacing,
+  ),
+  h6: (
+    $h6-line-height,
+    $h6-letter-spacing,
+  ),
+);
 
-//Toast Colors
-$toast-info: $info !default;
-$toast-success: $success !default;
-$toast-warning: $warning !default;
-$toast-error: $danger !default;
+@each $tag, $properties in $headings {
+  #{$tag},
+  .#{$tag} {
+    line-height: nth($properties, 1);
+    letter-spacing: nth($properties, 2);
+  }
+}
 
-// Text Token
-$text-info: $blue-600;
-$text-success: $green-600;
-$text-error: $red-600;
-$text-warning: $orange-600;
+$focus-shadows: (
+  "primary": $blue-100,
+  "danger": $red-100,
+  "info": $blue-100,
+  "success": $green-100,
+  "warning": $orange-100,
+  "secondary": $gray-200,
+);
 
-$text-brand: $blue-600;
-$text-brand-emphasis-1: $blue-700;
+@each $state, $color in $focus-shadows {
+  .shadow-#{$state},
+  .shadow-#{$state}:hover,
+  .shadow-#{$state}:focus {
+    box-shadow: 0 0 0 4px #{$color} !important;
+  }
+}
 
-$text-primary: $gray-800;
-$text-secondary: $gray-700;
-$text-light: $gray-100;
-$text-dark: $gray-900;
+$custom-text-colors: (
+  "body": $gray-800,
+  "disable": $gray-600,
+);
 
-$text-link: $blue-600;
-$text-link-emphasis-1: $blue-500;
-$text-link-emphasis-2: $blue-700;
+@each $name, $color in $custom-text-colors {
+  .text-#{$name} {
+    color: #{$color} !important;
+  }
+}
 
-$text-disable: $gray-600;
+$custom-bg-colors: (
+  "body": $gray-100,
+  "disable": $gray-300,
+);
 
-// Border Color Aliases
-$border-default: $gray-500;
-$border-brand: $blue-600;
-$border-brand-emphasis-1: $blue-100;
+@each $name, $color in $custom-bg-colors {
+  .bg-#{$name} {
+    background-color: #{$color} !important;
+  }
+}
 
-$border-info: $blue-600;
-$border-success: $green-600;
-$border-error: $red-600;
-$border-warning: $orange-600;
+$custom-border-colors: (
+  "default": $gray-500,
+  "border-disable": $gray-500,
+);
 
-// Background Color Aliases
-$bg-light: $gray-100;
-$bg-black: $black;
-$bg-dark: $gray-800;
-
-$bg-brand: $blue-600;
-$bg-brand-emphasis-1: $blue-100;
-$bg-brand-emphasis-2: $blue-200;
-$bg-brand-emphasis-3: $blue-300;
-$bg-brand-emphasis-4: $blue-500;
-$bg-brand-emphasis-5: $blue-700;
-
-$bg-secondary: $gray-600;
-$bg-secondary-emphasis-1: $gray-200;
-$bg-secondary-emphasis-2: $gray-300;
-$bg-secondary-emphasis-3: $gray-400;
-$bg-secondary-emphasis-4: $gray-500;
-$bg-grey-emphasis-5: $gray-700;
-
-$bg-disable: $gray-300;
-$bg-disable-emphasis-1: $gray-200;
-$bg-disable-emphasis-2: $gray-600;
-
-$bg-info-light: $blue-100;
-$bg-info-light-2: $blue-200;
-$bg-info-light-3: $blue-300;
-$bg-info-light-4: $blue-500;
-$bg-info-dark: $blue-600;
-$bg-info-dark-2: $blue-700;
-
-$bg-success-light: $green-100;
-$bg-success-dark: $green-600;
-$bg-success-dark-2: $green-100;
-$bg-success-dark-3: $green-200;
-$bg-success-dark-4: $green-300;
-$bg-success-emphasis-1: $green-500;
-$bg-success-emphasis-2: $green-700;
-
-$bg-error-light: $red-100;
-$bg-error-dark: $red-600;
-$bg-error-dark-2: $red-100;
-$bg-error-dark-3: $red-200;
-$bg-error-dark-4: $red-300;
-$bg-error-emphasis-1: $red-500;
-$bg-error-emphasis-2: $red-700;
-
-$bg-warning-light: $orange-100;
-$bg-warning-light-2: $orange-200;
-$bg-warning-light-3: $orange-300;
-$bg-warning-dark: $orange-600;
-$bg-warning-emphasis-1: $orange-700;
-$bg-warning-emphasis-2: $orange-500;
-
-// Icon Color Aliases
-$icon-default: $gray-800;
-$icon-secondary: $gray-700;
-$icon-white: $gray-100;
-$icon-disable: $gray-600;
-
-$icon-brand: $blue-600;
-$icon-emphasis-1: $blue-700;
-
-$icon-info: $blue-600;
-$icon-info-emphasis-1: $blue-700;
-
-$icon-success: $green-600;
-$icon-success-emphasis-1: $green-700;
-
-$icon-warning: $orange-600;
-$icon-warning-emphasis-1: $orange-700;
-
-$icon-error: $red-600;
-$icon-error-emphasis-1: $red-700;
+@each $name, $color in $custom-border-colors {
+  .#{$name} {
+    border-color: $color !important;
+  }
+}

@@ -1,42 +1,13 @@
-h1 {
-  line-height: $line-height-36;
-  letter-spacing: -0.6px;
-}
-
-h2 {
-  line-height: $line-height-30;
-  letter-spacing: -0.4px;
-}
-
-h3 {
-  line-height: $line-height-26;
-  letter-spacing: -0.2px;
-}
-
-h4 {
-  line-height: $line-height-24;
-  letter-spacing: 0;
-}
-
-h5 {
-  line-height: $line-height-22;
-  letter-spacing: 0;
-}
-
-h6 {
-  line-height: $line-height-20;
-  letter-spacing: 0;
-}
-
-.body-text {
-  font-size: $font-size-base;
-  line-height: $line-height-18;
-  letter-spacing: 0;
+body,
+.body {
+  font-size: $font-size-base !important;
+  line-height: $body-line-height !important;
+  letter-spacing: $body-letter-spacing !important;
 }
 
 caption,
 .caption {
-  font-size: $caption-font-size;
-  line-height: $line-height-16;
-  letter-spacing: 0;
+  font-size: $caption-font-size !important;
+  line-height: $caption-line-height !important;
+  letter-spacing: $caption-letter-spacing !important;
 }
