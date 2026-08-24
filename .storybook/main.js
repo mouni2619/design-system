@@ -6,6 +6,7 @@ const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 function resolvePath(dir) {
   return path.resolve(projectRoot, dir);
 }
+
 /** @type { import('@storybook/react-vite').StorybookConfig } */
 const config = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -18,7 +19,8 @@ const config = {
       "@": resolvePath("src"),
       "@assets": resolvePath("src/assets/themes"),
       "@components": resolvePath("src/components"),
-      "@design-tokens": resolvePath("src/designTokens.js"),
+      "@docs": resolvePath("src/docs"),
+      "@theme": resolvePath("src/theme"),
       "@tokens": resolvePath("src/tokens.js"),
     };
 
