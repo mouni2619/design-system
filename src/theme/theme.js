@@ -42,7 +42,7 @@ export const primaryGradientTokens = [
   formatToken("primary-emp-2", ThemeColors["primary-emp-2"]),
   formatToken("primary-emp-3", ThemeColors["primary-emp-3"]),
   formatToken("primary-emp-5", ThemeColors["primary-emp-5"]),
-  formatToken("primary (base)", ThemeColors.primary),
+  formatToken("primary", ThemeColors.primary),
   formatToken("primary-emp-7", ThemeColors["primary-emp-7"]),
 ];
 
@@ -51,7 +51,7 @@ export const successGradientTokens = [
   formatToken("success-emp-2", ThemeColors["success-emp-2"]),
   formatToken("success-emp-3", ThemeColors["success-emp-3"]),
   formatToken("success-emp-5", ThemeColors["success-emp-5"]),
-  formatToken("success (base)", ThemeColors.success),
+  formatToken("success", ThemeColors.success),
   formatToken("success-emp-7", ThemeColors["success-emp-7"]),
 ];
 
@@ -60,7 +60,7 @@ export const dangerGradientTokens = [
   formatToken("danger-emp-2", ThemeColors["danger-emp-2"]),
   formatToken("danger-emp-3", ThemeColors["danger-emp-3"]),
   formatToken("danger-emp-5", ThemeColors["danger-emp-5"]),
-  formatToken("danger (base)", ThemeColors.danger),
+  formatToken("danger", ThemeColors.danger),
   formatToken("danger-emp-7", ThemeColors["danger-emp-7"]),
 ];
 
@@ -69,7 +69,7 @@ export const warningGradientTokens = [
   formatToken("warning-emp-2", ThemeColors["warning-emp-2"]),
   formatToken("warning-emp-3", ThemeColors["warning-emp-3"]),
   formatToken("warning-emp-5", ThemeColors["warning-emp-5"]),
-  formatToken("warning (base)", ThemeColors.warning),
+  formatToken("warning", ThemeColors.warning),
   formatToken("warning-emp-7", ThemeColors["warning-emp-7"]),
 ];
 
@@ -78,7 +78,7 @@ export const infoGradientTokens = [
   formatToken("info-emp-2", ThemeColors["info-emp-2"]),
   formatToken("info-emp-3", ThemeColors["info-emp-3"]),
   formatToken("info-emp-5", ThemeColors["info-emp-5"]),
-  formatToken("info (base)", ThemeColors.info),
+  formatToken("info", ThemeColors.info),
   formatToken("info-emp-7", ThemeColors["info-emp-7"]),
 ];
 
@@ -105,10 +105,9 @@ export const themeGradientGroups = [
 ];
 
 /* ------------------------------------------------------------------ *
- * Typography Scale (Small to Big: Caption 10px -> H1 30px)
+ * Typography Scale & Weights
  * ------------------------------------------------------------------ */
 
-// Ordered from smallest to largest: Caption (10px) up to H1 (30px)
 const typeScaleOrder = ["caption", "body", "h6", "h5", "h4", "h3", "h2", "h1"];
 
 export const typeScale = typeScaleOrder.map((step) => ({
@@ -139,11 +138,7 @@ const typographyColorLabels = [
   ["Link", ThemeColors, "primary"],
 ];
 
-export const typographyColors = typographyColorLabels.map(([role, map, key]) => [
-  role,
-  paletteRef(map[key]),
-  map[key],
-]);
+export const typographyColors = typographyColorLabels.map(([role, map, key]) => [role, paletteRef(map[key]), map[key]]);
 
 export const spacing = Object.entries(SpaceTokens).map(([key, value]) => ({
   token: `Space-${key}`,
@@ -167,13 +162,11 @@ export const elevationShadows = Object.entries(ElevationShadows).map(([key, valu
   value,
 }));
 
-export const focusRingShadows = Object.entries(FocusRingShadows).map(
-  ([key, { border, value }]) => ({
-    token: `Shadow-${key}`,
-    border,
-    value,
-  })
-);
+export const focusRingShadows = Object.entries(FocusRingShadows).map(([key, { border, value }]) => ({
+  token: `Shadow-${key}`,
+  border,
+  value,
+}));
 
 export default {
   paletteRef,

@@ -32,7 +32,9 @@ export function PaletteRamps() {
             borderTop: `1px solid ${Grey["gray-400"]}`,
           }}
         >
-          <div style={{ fontFamily: FontFamily, fontSize: 13, fontWeight: 600, color: Grey["gray-900"] }}>{name}</div>
+          <div style={{ fontFamily: FontFamily, fontSize: 13, fontWeight: 600, color: Grey["gray-900"] }}>
+            {name}
+          </div>
           <div style={{ display: "flex", gap: 2 }}>
             {Object.values(colors).map((hex, i) => (
               <div key={i} style={{ flex: 1, textAlign: "center" }}>
@@ -40,7 +42,12 @@ export function PaletteRamps() {
                   {i + 1}
                 </div>
                 <div
-                  style={{ height: 44, background: hex, border: `1px solid ${Grey["gray-400"]}`, borderRadius: 3 }}
+                  style={{
+                    height: 44,
+                    background: hex,
+                    border: `1px solid ${Grey["gray-400"]}`,
+                    borderRadius: 3,
+                  }}
                 />
                 <code style={{ fontSize: 10, color: Grey["gray-700"] }}>{hex}</code>
               </div>
@@ -53,7 +60,7 @@ export function PaletteRamps() {
 }
 
 /**
- * Theme tokens — separated on the basis of Color Gradient Families
+ * Theme tokens — separated on the basis of Color Gradient Families.
  */
 export function ThemeTokens() {
   return (
@@ -66,13 +73,13 @@ export function ThemeTokens() {
             border: `1px solid ${Grey["gray-400"]}`,
             borderRadius: 8,
             overflow: "hidden",
-            boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
+            boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
           }}
         >
           {/* Group Header */}
           <div
             style={{
-              padding: "14px 18px",
+              padding: "12px 16px",
               background: Grey["gray-200"],
               borderBottom: `1px solid ${Grey["gray-400"]}`,
               display: "flex",
@@ -81,36 +88,40 @@ export function ThemeTokens() {
             }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <div
+              <span
                 style={{
-                  width: 14,
-                  height: 14,
+                  width: 12,
+                  height: 12,
                   borderRadius: "50%",
                   background: color,
-                  border: `1px solid rgba(0,0,0,0.15)`,
+                  border: "1px solid rgba(0,0,0,0.15)",
                 }}
               />
-              <h3 style={{ fontFamily: FontFamily, fontSize: 15, fontWeight: 700, color: Grey["gray-900"], margin: 0 }}>
+              <h4 style={{ fontFamily: FontFamily, fontSize: 14, fontWeight: 600, color: Grey["gray-900"], margin: 0 }}>
                 {name}
-              </h3>
+              </h4>
             </div>
-            <span style={{ fontSize: 12, color: Grey["gray-700"] }}>{tokens.length} tokens</span>
+            <span style={{ fontSize: 12, color: Grey["gray-700"] }}>
+              {tokens.length} tokens
+            </span>
           </div>
 
           {/* Gradient Tokens Table */}
           <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: FontFamily }}>
             <thead>
-              <tr
-                style={{
-                  textAlign: "left",
-                  background: Grey["gray-100"],
-                  borderBottom: `1px solid ${Grey["gray-400"]}`,
-                }}
-              >
-                <th style={{ padding: "10px 16px", fontSize: 12, color: Grey["gray-700"], width: 64 }}>Swatch</th>
-                <th style={{ padding: "10px 16px", fontSize: 12, color: Grey["gray-700"] }}>Token Name</th>
-                <th style={{ padding: "10px 16px", fontSize: 12, color: Grey["gray-700"] }}>Palette Ref</th>
-                <th style={{ padding: "10px 16px", fontSize: 12, color: Grey["gray-700"] }}>HEX Value</th>
+              <tr style={{ textAlign: "left", background: Grey["gray-100"], borderBottom: `1px solid ${Grey["gray-400"]}` }}>
+                <th style={{ padding: "8px 16px", fontSize: 12, fontWeight: 500, color: Grey["gray-700"], width: 64 }}>
+                  Swatch
+                </th>
+                <th style={{ padding: "8px 16px", fontSize: 12, fontWeight: 500, color: Grey["gray-700"] }}>
+                  Token Name
+                </th>
+                <th style={{ padding: "8px 16px", fontSize: 12, fontWeight: 500, color: Grey["gray-700"] }}>
+                  Palette Ref
+                </th>
+                <th style={{ padding: "8px 16px", fontSize: 12, fontWeight: 500, color: Grey["gray-700"] }}>
+                  HEX Value
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -130,19 +141,10 @@ export function ThemeTokens() {
                         background: hex,
                         border: `1px solid ${Grey["gray-400"]}`,
                         borderRadius: 3,
-                        boxShadow: "0 1px 2px rgba(0,0,0,0.06)",
                       }}
                     />
                   </td>
-                  <td
-                    style={{
-                      padding: "8px 16px",
-                      fontFamily: "monospace",
-                      fontSize: 12,
-                      fontWeight: 600,
-                      color: Grey["gray-900"],
-                    }}
-                  >
+                  <td style={{ padding: "8px 16px", fontFamily: "monospace", fontSize: 12, fontWeight: 600, color: Grey["gray-900"] }}>
                     {tokenName}
                   </td>
                   <td style={{ padding: "8px 16px", fontSize: 12, color: Grey["gray-700"] }}>
@@ -158,7 +160,7 @@ export function ThemeTokens() {
                       {ref}
                     </span>
                   </td>
-                  <td style={{ padding: "8px 16px", fontFamily: "monospace", fontSize: 12, color: Grey["gray-800"] }}>
+                  <td style={{ padding: "8px 16px", fontFamily: "monospace", fontSize: 12, color: Grey["gray-700"] }}>
                     {hex}
                   </td>
                 </tr>
@@ -172,32 +174,67 @@ export function ThemeTokens() {
 }
 
 /**
- * Five weight boxes — Light 300 up to Bold 700.
+ * Type Scale Table.
+ */
+export function TypeScaleTable() {
+  return (
+    <div style={{ maxWidth: 720, margin: "16px 0 32px", fontFamily: FontFamily }}>
+      <table style={{ width: "100%", borderCollapse: "collapse" }}>
+        <thead>
+          <tr style={{ textAlign: "left", borderBottom: `2px solid ${Grey["gray-500"]}` }}>
+            <th style={{ padding: "8px 12px", fontSize: 12, color: Grey["gray-700"] }}>Step</th>
+            <th style={{ padding: "8px 12px", fontSize: 12, color: Grey["gray-700"] }}>Font size</th>
+            <th style={{ padding: "8px 12px", fontSize: 12, color: Grey["gray-700"] }}>Line height</th>
+            <th style={{ padding: "8px 12px", fontSize: 12, color: Grey["gray-700"] }}>Tracking</th>
+          </tr>
+        </thead>
+        <tbody>
+          {typeScale.map(({ token, fontSize, lineHeight, letterSpacing }) => (
+            <tr key={token} style={{ borderBottom: `1px solid ${Grey["gray-400"]}` }}>
+              <td style={{ padding: "8px 12px", fontSize: 13, fontWeight: 600, color: Grey["gray-900"] }}>{token}</td>
+              <td style={{ padding: "8px 12px", fontSize: 12, color: Grey["gray-700"] }}>{fontSize}px</td>
+              <td style={{ padding: "8px 12px", fontSize: 12, color: Grey["gray-700"] }}>{lineHeight}px</td>
+              <td style={{ padding: "8px 12px", fontSize: 12, color: Grey["gray-700"] }}>{letterSpacing}px</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+/**
+ * Font Weight — one box per weight, Light 300 → Bold 700.
  */
 export function WeightSwatches() {
   return (
-    <div style={{ display: "flex", gap: 16, fontFamily: FontFamily }}>
-      {fontWeights.map(({ name, value }) => (
-        <div key={name} style={{ textAlign: "center" }}>
+    <div style={{ display: "flex", gap: 16, flexWrap: "wrap", fontFamily: FontFamily }}>
+      {fontWeights.map((w) => (
+        <div key={w.value} style={{ textAlign: "center" }}>
           <div
             style={{
-              width: 80,
-              height: 80,
+              width: 88,
+              height: 88,
+              border: `1px solid ${Grey["gray-500"]}`,
+              borderRadius: 8,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: 32,
-              fontWeight: value,
+              fontFamily: FontFamily,
+              fontSize: 40,
+              fontWeight: w.value,
               color: Grey["gray-900"],
-              border: `1px solid ${Grey["gray-400"]}`,
-              borderRadius: 6,
               background: Grey["gray-100"],
             }}
           >
             S
           </div>
-          <div style={{ fontSize: 12, fontWeight: 600, color: Grey["gray-900"], marginTop: 8 }}>{name}</div>
-          <div style={{ fontSize: 11, color: Grey["gray-700"] }}>{value}</div>
+          <div style={{ fontFamily: FontFamily, fontSize: 12, fontWeight: 600, color: Grey["gray-900"], marginTop: 6 }}>
+            {w.name}
+          </div>
+          <div style={{ fontFamily: FontFamily, fontSize: 11, color: Grey["gray-700"] }}>
+            {w.value}
+          </div>
         </div>
       ))}
     </div>
@@ -205,36 +242,44 @@ export function WeightSwatches() {
 }
 
 /**
- * The Style Matrix — every type-scale step rendered at all five weights (Small to Big).
+ * Style Matrix — every token rendered at every weight, smallest to biggest (Caption -> H1).
  */
 export function StyleMatrix() {
   return (
-    <div style={{ display: "grid", gap: 24, fontFamily: FontFamily }}>
-      {typeScale.map(({ token, fontSize: size, lineHeight: lh, letterSpacing: ls }) => (
-        <div key={token} style={{ borderTop: `1px solid ${Grey["gray-400"]}`, paddingTop: 16 }}>
-          <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 8 }}>
-            <span style={{ fontSize: 14, fontWeight: 600, color: Grey["gray-900"] }}>{token}</span>
-            <span style={{ fontSize: 12, color: Grey["gray-700"] }}>
-              {size}px / {lh}px &middot; tracking {ls}px
-            </span>
-          </div>
-          <div style={{ display: "grid", gap: 6 }}>
-            {fontWeights.map(({ name, value }) => (
-              <div
-                key={name}
+    <div style={{ display: "grid", gap: 16, fontFamily: FontFamily }}>
+      {typeScale.map((t) => (
+        <div key={t.token} style={{ borderTop: `1px solid ${Grey["gray-400"]}`, padding: "16px 0" }}>
+          {fontWeights.map((w) => (
+            <div
+              key={w.value}
+              style={{
+                display: "grid",
+                gridTemplateColumns: "220px 64px 1fr",
+                gap: 16,
+                alignItems: "baseline",
+                padding: "6px 0",
+              }}
+            >
+              <span style={{ fontFamily: FontFamily, fontSize: 12, color: Grey["gray-700"] }}>
+                Inter · {w.name} · {t.fontSize}px · {w.value}
+              </span>
+              <span style={{ fontFamily: FontFamily, fontSize: 12, fontWeight: 600, color: Grey["gray-800"] }}>
+                {t.token}
+              </span>
+              <span
                 style={{
                   fontFamily: FontFamily,
-                  fontSize: size,
-                  lineHeight: `${lh}px`,
-                  letterSpacing: `${ls}px`,
-                  fontWeight: value,
+                  fontSize: t.fontSize,
+                  lineHeight: `${t.lineHeight}px`,
+                  letterSpacing: `${t.letterSpacing}px`,
+                  fontWeight: w.value,
                   color: Grey["gray-900"],
                 }}
               >
                 {SAMPLE}
-              </div>
-            ))}
-          </div>
+              </span>
+            </div>
+          ))}
         </div>
       ))}
     </div>
@@ -242,72 +287,81 @@ export function StyleMatrix() {
 }
 
 /**
- * Roles & colors mapped for typography.
+ * Typography Colour table.
  */
 export function TypographyColorTable() {
   return (
-    <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: FontFamily }}>
-      <thead>
-        <tr style={{ textAlign: "left", borderBottom: `2px solid ${Grey["gray-500"]}` }}>
-          <th style={{ padding: "8px 12px", fontSize: 12, color: Grey["gray-700"] }}>Role</th>
-          <th style={{ padding: "8px 12px", fontSize: 12, color: Grey["gray-700"] }}>Sample</th>
-          <th style={{ padding: "8px 12px", fontSize: 12, color: Grey["gray-700"] }}>Palette ref</th>
-          <th style={{ padding: "8px 12px", fontSize: 12, color: Grey["gray-700"] }}>Hex</th>
-        </tr>
-      </thead>
-      <tbody>
-        {typographyColors.map(([role, ref, hex]) => (
-          <tr key={role} style={{ borderBottom: `1px solid ${Grey["gray-400"]}` }}>
-            <td style={{ padding: "8px 12px", fontSize: 13, fontWeight: 500, color: Grey["gray-900"] }}>{role}</td>
-            <td style={{ padding: "8px 12px", fontSize: 14, fontWeight: 600, color: hex }}>Aa</td>
-            <td style={{ padding: "8px 12px", fontSize: 12, color: Grey["gray-700"] }}>{ref}</td>
-            <td style={{ padding: "8px 12px", fontFamily: "monospace", fontSize: 12, color: Grey["gray-700"] }}>
-              {hex}
-            </td>
+    <div style={{ maxWidth: 720, margin: "16px 0 32px", fontFamily: FontFamily }}>
+      <table style={{ width: "100%", borderCollapse: "collapse" }}>
+        <thead>
+          <tr style={{ textAlign: "left", borderBottom: `2px solid ${Grey["gray-500"]}` }}>
+            <th style={{ padding: "8px 12px", fontSize: 12, color: Grey["gray-700"] }}>Role</th>
+            <th style={{ padding: "8px 12px", fontSize: 12, color: Grey["gray-700"] }}>Reference</th>
+            <th style={{ padding: "8px 12px", fontSize: 12, color: Grey["gray-700"] }}>Value</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {typographyColors.map(([role, ref, value]) => (
+            <tr key={role} style={{ borderBottom: `1px solid ${Grey["gray-400"]}` }}>
+              <td style={{ padding: "8px 12px", fontSize: 13, fontWeight: 500, color: Grey["gray-900"] }}>
+                {role}
+              </td>
+              <td style={{ padding: "8px 12px", fontSize: 12, color: Grey["gray-700"] }}>
+                {ref}
+              </td>
+              <td style={{ padding: "8px 12px" }}>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
+                  <span
+                    style={{
+                      width: 16,
+                      height: 16,
+                      background: value,
+                      border: `1px solid ${Grey["gray-500"]}`,
+                      borderRadius: 4,
+                    }}
+                  />
+                  <code style={{ fontSize: 12, color: Grey["gray-800"] }}>{value}</code>
+                </span>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
 /**
- * Spacing scale graphical specimen
+ * Spacing — a blue bar sized to each step, smallest first (1:1 true pixel scale).
  */
 export function SpacingScale() {
   return (
-    <div style={{ maxWidth: 480, display: "grid", gap: 8, fontFamily: FontFamily }}>
-      {spacing.map(({ token, value }) => (
+    <div style={{ fontFamily: FontFamily }}>
+      {spacing.map((s) => (
         <div
-          key={token}
+          key={s.token}
           style={{
             display: "grid",
-            gridTemplateColumns: "110px 1fr 60px",
-            alignItems: "center",
+            gridTemplateColumns: "140px 160px 1fr",
             gap: 16,
-            padding: "8px 12px",
-            borderBottom: `1px solid ${Grey["gray-400"]}`,
-            background: Grey["gray-100"],
-            borderRadius: 4,
+            alignItems: "center",
+            padding: "12px 0",
+            borderTop: `1px solid ${Grey["gray-400"]}`,
           }}
         >
-          <span style={{ fontFamily: "monospace", fontSize: 12, fontWeight: 600, color: Grey["gray-900"] }}>
-            {token}
+          <span style={{ fontFamily: FontFamily, fontSize: 12, fontWeight: 600, color: Grey["gray-900"] }}>
+            {s.token}
           </span>
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <div
-              title={`${value}px`}
-              style={{
-                height: 16,
-                width: value,
-                minWidth: value,
-                background: DaybreakBlue["blue-600"],
-                borderRadius: 2,
-              }}
-            />
-          </div>
-          <span style={{ fontSize: 12, color: Grey["gray-700"], textAlign: "right", fontFamily: "monospace" }}>
-            {value}px
+          <div
+            style={{
+              width: s.value,
+              height: 20,
+              background: DaybreakBlue["blue-600"],
+              borderRadius: 2,
+            }}
+          />
+          <span style={{ fontFamily: FontFamily, fontSize: 12, color: Grey["gray-700"] }}>
+            {s.value}px
           </span>
         </div>
       ))}
@@ -316,25 +370,29 @@ export function SpacingScale() {
 }
 
 /**
- * Border strength scale specimen.
+ * Border strength — a box drawn at each width.
  */
 export function BorderWidthScale() {
   return (
-    <div style={{ display: "flex", gap: 24, flexWrap: "wrap", fontFamily: FontFamily }}>
-      {borderWidths.map(({ token, value }) => (
-        <div key={token} style={{ textAlign: "center" }}>
+    <div style={{ display: "flex", flexWrap: "wrap", gap: 24, padding: 8, fontFamily: FontFamily }}>
+      {borderWidths.map((w) => (
+        <div key={w.token} style={{ width: 140, textAlign: "center" }}>
           <div
             style={{
-              width: 80,
-              height: 80,
-              border: `${value}px solid ${Grey["gray-900"]}`,
-              borderRadius: 6,
+              width: 96,
+              height: 96,
+              margin: "0 auto 12px",
               background: Grey["gray-100"],
-              marginBottom: 8,
+              border: `${w.value}px solid ${Grey["gray-900"]}`,
+              borderRadius: 8,
             }}
           />
-          <div style={{ fontFamily: "monospace", fontSize: 12, fontWeight: 600, color: Grey["gray-900"] }}>{token}</div>
-          <div style={{ fontSize: 11, color: Grey["gray-700"] }}>{value}px</div>
+          <div style={{ fontFamily: FontFamily, fontSize: 12, fontWeight: 600, color: Grey["gray-900"], marginBottom: 4 }}>
+            {w.token}
+          </div>
+          <div style={{ fontFamily: FontFamily, fontSize: 11, color: Grey["gray-700"] }}>
+            {w.value}px
+          </div>
         </div>
       ))}
     </div>
@@ -342,25 +400,29 @@ export function BorderWidthScale() {
 }
 
 /**
- * Border radius scale specimen.
+ * Border radius — a rounded box per step, up to a full circle.
  */
 export function RadiusScale() {
   return (
-    <div style={{ display: "flex", gap: 24, flexWrap: "wrap", fontFamily: FontFamily }}>
-      {borderRadius.map(({ token, value }) => (
-        <div key={token} style={{ textAlign: "center" }}>
+    <div style={{ display: "flex", flexWrap: "wrap", gap: 24, padding: 8, fontFamily: FontFamily }}>
+      {borderRadius.map((r) => (
+        <div key={r.token} style={{ width: 140, textAlign: "center" }}>
           <div
             style={{
-              width: 80,
-              height: 80,
-              border: `2px solid ${DaybreakBlue["blue-600"]}`,
-              borderRadius: value === 999 ? "50%" : value,
+              width: 96,
+              height: 96,
+              margin: "0 auto 12px",
               background: Grey["gray-100"],
-              marginBottom: 8,
+              border: `2px solid ${DaybreakBlue["blue-600"]}`,
+              borderRadius: r.value === 999 ? "50%" : r.value,
             }}
           />
-          <div style={{ fontFamily: "monospace", fontSize: 12, fontWeight: 600, color: Grey["gray-900"] }}>{token}</div>
-          <div style={{ fontSize: 11, color: Grey["gray-700"] }}>{value === 999 ? "circle" : `${value}px`}</div>
+          <div style={{ fontFamily: FontFamily, fontSize: 12, fontWeight: 600, color: Grey["gray-900"], marginBottom: 4 }}>
+            {r.token}
+          </div>
+          <div style={{ fontFamily: FontFamily, fontSize: 11, color: Grey["gray-700"] }}>
+            {r.value === 999 ? "circle (50%)" : `${r.value}px`}
+          </div>
         </div>
       ))}
     </div>
@@ -372,21 +434,25 @@ export function RadiusScale() {
  */
 export function ElevationShadows() {
   return (
-    <div style={{ display: "flex", gap: 32, flexWrap: "wrap", fontFamily: FontFamily }}>
-      {elevationShadows.map(({ token, value }) => (
-        <div key={token} style={{ textAlign: "center" }}>
+    <div style={{ display: "flex", flexWrap: "wrap", gap: 24, padding: 8, fontFamily: FontFamily }}>
+      {elevationShadows.map((sh) => (
+        <div key={sh.token} style={{ width: 180 }}>
           <div
             style={{
-              width: 100,
-              height: 100,
+              height: 96,
               background: Grey["gray-100"],
               borderRadius: 8,
-              boxShadow: value,
+              boxShadow: sh.value,
               marginBottom: 12,
               border: `1px solid ${Grey["gray-400"]}`,
             }}
           />
-          <div style={{ fontFamily: "monospace", fontSize: 12, fontWeight: 600, color: Grey["gray-900"] }}>{token}</div>
+          <div style={{ fontFamily: FontFamily, fontSize: 12, fontWeight: 600, color: Grey["gray-900"], marginBottom: 4 }}>
+            {sh.token}
+          </div>
+          <div style={{ fontFamily: FontFamily, fontSize: 11, color: Grey["gray-700"] }}>
+            {sh.value}
+          </div>
         </div>
       ))}
     </div>
@@ -394,25 +460,29 @@ export function ElevationShadows() {
 }
 
 /**
- * Focus ring shadows specimen.
+ * Focus rings specimen.
  */
 export function FocusRingShadows() {
   return (
-    <div style={{ display: "flex", gap: 32, flexWrap: "wrap", fontFamily: FontFamily }}>
-      {focusRingShadows.map(({ token, border, value }) => (
-        <div key={token} style={{ textAlign: "center" }}>
+    <div style={{ display: "flex", flexWrap: "wrap", gap: 24, padding: 8, fontFamily: FontFamily }}>
+      {focusRingShadows.map((sh) => (
+        <div key={sh.token} style={{ width: 180 }}>
           <div
             style={{
-              width: 100,
-              height: 100,
+              height: 96,
               background: Grey["gray-100"],
               borderRadius: 8,
-              border: `1px solid ${border}`,
-              boxShadow: value,
+              border: `1px solid ${sh.border}`,
+              boxShadow: sh.value,
               marginBottom: 12,
             }}
           />
-          <div style={{ fontFamily: "monospace", fontSize: 12, fontWeight: 600, color: Grey["gray-900"] }}>{token}</div>
+          <div style={{ fontFamily: FontFamily, fontSize: 12, fontWeight: 600, color: Grey["gray-900"], marginBottom: 4 }}>
+            {sh.token}
+          </div>
+          <div style={{ fontFamily: FontFamily, fontSize: 11, color: Grey["gray-700"] }}>
+            {sh.value}
+          </div>
         </div>
       ))}
     </div>
