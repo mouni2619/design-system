@@ -21,7 +21,6 @@ const config = {
       "@components": resolvePath("src/components"),
       "@docs": resolvePath("src/docs"),
       "@theme": resolvePath("src/theme"),
-      "@design-tokens": resolvePath("src/designTokens.js"),
       "@tokens": resolvePath("src/tokens.js"),
     };
 

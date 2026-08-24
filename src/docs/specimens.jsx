@@ -36,8 +36,12 @@ export function PaletteRamps() {
           <div style={{ display: "flex", gap: 2 }}>
             {Object.values(colors).map((hex, i) => (
               <div key={i} style={{ flex: 1, textAlign: "center" }}>
-                <div style={{ fontFamily: FontFamily, fontSize: 11, color: Grey["gray-700"], marginBottom: 4 }}>{i + 1}</div>
-                <div style={{ height: 44, background: hex, border: `1px solid ${Grey["gray-400"]}`, borderRadius: 3 }} />
+                <div style={{ fontFamily: FontFamily, fontSize: 11, color: Grey["gray-700"], marginBottom: 4 }}>
+                  {i + 1}
+                </div>
+                <div
+                  style={{ height: 44, background: hex, border: `1px solid ${Grey["gray-400"]}`, borderRadius: 3 }}
+                />
                 <code style={{ fontSize: 10, color: Grey["gray-700"] }}>{hex}</code>
               </div>
             ))}
@@ -49,7 +53,7 @@ export function PaletteRamps() {
 }
 
 /**
- * Theme tokens — separated on the basis of Color Gradient Families (without horizontal colored line).
+ * Theme tokens — separated on the basis of Color Gradient Families
  */
 export function ThemeTokens() {
   return (
@@ -96,7 +100,13 @@ export function ThemeTokens() {
           {/* Gradient Tokens Table */}
           <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: FontFamily }}>
             <thead>
-              <tr style={{ textAlign: "left", background: Grey["gray-100"], borderBottom: `1px solid ${Grey["gray-400"]}` }}>
+              <tr
+                style={{
+                  textAlign: "left",
+                  background: Grey["gray-100"],
+                  borderBottom: `1px solid ${Grey["gray-400"]}`,
+                }}
+              >
                 <th style={{ padding: "10px 16px", fontSize: 12, color: Grey["gray-700"], width: 64 }}>Swatch</th>
                 <th style={{ padding: "10px 16px", fontSize: 12, color: Grey["gray-700"] }}>Token Name</th>
                 <th style={{ padding: "10px 16px", fontSize: 12, color: Grey["gray-700"] }}>Palette Ref</th>
@@ -124,7 +134,15 @@ export function ThemeTokens() {
                       }}
                     />
                   </td>
-                  <td style={{ padding: "8px 16px", fontFamily: "monospace", fontSize: 12, fontWeight: 600, color: Grey["gray-900"] }}>
+                  <td
+                    style={{
+                      padding: "8px 16px",
+                      fontFamily: "monospace",
+                      fontSize: 12,
+                      fontWeight: 600,
+                      color: Grey["gray-900"],
+                    }}
+                  >
                     {tokenName}
                   </td>
                   <td style={{ padding: "8px 16px", fontSize: 12, color: Grey["gray-700"] }}>
@@ -243,7 +261,9 @@ export function TypographyColorTable() {
             <td style={{ padding: "8px 12px", fontSize: 13, fontWeight: 500, color: Grey["gray-900"] }}>{role}</td>
             <td style={{ padding: "8px 12px", fontSize: 14, fontWeight: 600, color: hex }}>Aa</td>
             <td style={{ padding: "8px 12px", fontSize: 12, color: Grey["gray-700"] }}>{ref}</td>
-            <td style={{ padding: "8px 12px", fontFamily: "monospace", fontSize: 12, color: Grey["gray-700"] }}>{hex}</td>
+            <td style={{ padding: "8px 12px", fontFamily: "monospace", fontSize: 12, color: Grey["gray-700"] }}>
+              {hex}
+            </td>
           </tr>
         ))}
       </tbody>
@@ -252,26 +272,43 @@ export function TypographyColorTable() {
 }
 
 /**
- * Spacing scale graphical specimen.
+ * Spacing scale graphical specimen
  */
 export function SpacingScale() {
   return (
-    <div style={{ display: "grid", gap: 12, fontFamily: FontFamily }}>
+    <div style={{ maxWidth: 480, display: "grid", gap: 8, fontFamily: FontFamily }}>
       {spacing.map(({ token, value }) => (
         <div
           key={token}
           style={{
             display: "grid",
-            gridTemplateColumns: "100px 1fr 60px",
+            gridTemplateColumns: "110px 1fr 60px",
             alignItems: "center",
             gap: 16,
-            padding: "8px 0",
-            borderTop: `1px solid ${Grey["gray-400"]}`,
+            padding: "8px 12px",
+            borderBottom: `1px solid ${Grey["gray-400"]}`,
+            background: Grey["gray-100"],
+            borderRadius: 4,
           }}
         >
-          <span style={{ fontFamily: "monospace", fontSize: 12, fontWeight: 600, color: Grey["gray-900"] }}>{token}</span>
-          <div style={{ height: 20, width: value * 4, background: DaybreakBlue["blue-600"], borderRadius: 2 }} />
-          <span style={{ fontSize: 12, color: Grey["gray-700"], textAlign: "right" }}>{value}px</span>
+          <span style={{ fontFamily: "monospace", fontSize: 12, fontWeight: 600, color: Grey["gray-900"] }}>
+            {token}
+          </span>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <div
+              title={`${value}px`}
+              style={{
+                height: 16,
+                width: value,
+                minWidth: value,
+                background: DaybreakBlue["blue-600"],
+                borderRadius: 2,
+              }}
+            />
+          </div>
+          <span style={{ fontSize: 12, color: Grey["gray-700"], textAlign: "right", fontFamily: "monospace" }}>
+            {value}px
+          </span>
         </div>
       ))}
     </div>
