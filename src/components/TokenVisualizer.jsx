@@ -321,11 +321,10 @@ export function FocusRingShadow() {
   return (
     <div className="sb-unstyled d-flex flex-wrap gap-6 p-2 mb-4">
       {FocusRingShadows.map(
-        ({ token = "", border = "", value = "", usage = "" }) => (
+        ({ token = "", borderClass = "", value = "", usage = "" }) => (
           <div key={token} title={usage} className="focus-item">
             <div
-              style={{ "--bs-border-color": border }}
-              className={`bg-white rounded mb-2 border focus-preview ${token}`}
+              className={`bg-white rounded mb-2 border focus-preview ${borderClass} ${token}`}
             />
             <div className="fw-semibold small text-dark mb-1">{token}</div>
             <div className="small text-muted">{value}</div>

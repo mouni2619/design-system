@@ -19,6 +19,7 @@ import {
   Sunglow,
   Aquamarine,
   Spray,
+  ShadowGeometry,
 } from "@tokens";
 
 export const TypeScale = [
@@ -168,17 +169,17 @@ export const BorderStrength = [
 export const ElevationShadows = [
   {
     token: "shadow-sm",
-    value: `0 2px 4px 0 ${Grey["gray-400"]}`,
+    value: `${ShadowGeometry.sm} ${Grey["gray-400"]}`,
     usage: "Tooltip, cards, map icons",
   },
   {
     token: "shadow",
-    value: `0 4px 8px 0 ${Grey["gray-400"]}`,
+    value: `${ShadowGeometry.md} ${Grey["gray-400"]}`,
     usage: "Dropdowns, popovers, toasts, side panels",
   },
   {
     token: "shadow-lg",
-    value: `0 8px 12px 2px ${Grey["gray-400"]}`,
+    value: `${ShadowGeometry.lg} ${Grey["gray-400"]}`,
     usage: "Modals",
   },
 ];
@@ -186,44 +187,44 @@ export const ElevationShadows = [
 export const FocusRingShadows = [
   {
     token: "shadow-primary",
-    border: ThemeColors["primary"],
+    borderClass: "border-primary",
     ref: "DaybreakBlue/100",
-    value: `0 0 0 4px ${ThemeColors["primary-emp-1"]}`,
+    value: `${ShadowGeometry.focus} ${ThemeColors["primary-emp-1"]}`,
     usage: "Focused panels, module switch cards",
   },
   {
     token: "shadow-danger",
-    border: ThemeColors["danger"],
+    borderClass: "border-danger",
     ref: "DustRed/100",
-    value: `0 0 0 4px ${ThemeColors["danger-emp-1"]}`,
+    value: `${ShadowGeometry.focus} ${ThemeColors["danger-emp-1"]}`,
     usage: "Invalid field focus",
   },
   {
     token: "shadow-success",
-    border: ThemeColors["success"],
+    borderClass: "border-success",
     ref: "PolarGreen/100",
-    value: `0 0 0 4px ${ThemeColors["success-emp-1"]}`,
+    value: `${ShadowGeometry.focus} ${ThemeColors["success-emp-1"]}`,
     usage: "Valid field focus",
   },
   {
     token: "shadow-warning",
-    border: ThemeColors["warning"],
+    borderClass: "border-warning",
     ref: "SunsetOrange/100",
-    value: `0 0 0 4px ${ThemeColors["warning-emp-1"]}`,
+    value: `${ShadowGeometry.focus} ${ThemeColors["warning-emp-1"]}`,
     usage: "Warning field focus",
   },
   {
     token: "shadow-info",
-    border: ThemeColors["info"],
+    borderClass: "border-info",
     ref: "DaybreakBlue/100",
-    value: `0 0 0 4px ${ThemeColors["info-emp-1"]}`,
+    value: `${ShadowGeometry.focus} ${ThemeColors["info-emp-1"]}`,
     usage: "Active navigation items",
   },
   {
     token: "shadow-secondary",
-    border: ThemeColors["secondary-emp-5"],
+    borderClass: "border-secondary-emp-5",
     ref: "Grey/200",
-    value: `0 0 0 4px ${ThemeColors["secondary-emp-2"]}`,
+    value: `${ShadowGeometry.focus} ${ThemeColors["secondary-emp-2"]}`,
     usage: "Neutral focus",
   },
 ];
