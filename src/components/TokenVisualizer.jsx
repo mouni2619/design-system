@@ -155,7 +155,7 @@ export function ThemeTokenTable({ groups = [] }) {
                         )}
                       </td>
                       <td className={TABLE_CELL}>
-                        <span className="badge bg-light text-secondary border fw-normal px-2 py-1 ref-badge">
+                        <span className="badge bg-light text-secondary border fw-normal px-2 py-1 caption">
                           {ref}
                         </span>
                       </td>
@@ -285,9 +285,7 @@ export function StrengthScale() {
       {BorderStrength.map(({ token = "", value = 0 }) => (
         <div key={token} className="text-center scale-item">
           <div
-            className={`mx-auto mb-2 bg-white border-dark rounded strength-box radius-box ${
-              token
-            }`}
+            className={`mx-auto mb-2 bg-white border border-secondary-emp-8 rounded strength-box radius-box ${token}`}
           />
           <div className="fw-semibold small text-dark mb-1">
             <CopyBadge text={token}>{token}</CopyBadge>
@@ -304,13 +302,11 @@ export function StrengthScale() {
  */
 export function ElevationShadow() {
   return (
-    <div className="d-flex flex-wrap gap-4 p-2 mb-4">
-      {ElevationShadows.map(({ token = "", value = "" }) => (
-        <div key={token} className="w-25">
+    <div className="sb-unstyled d-flex flex-wrap gap-6 p-2 mb-4">
+      {ElevationShadows.map(({ token = "", value = "", usage = "" }) => (
+        <div key={token} title={usage} className="shadow-item">
           <div className={`bg-white rounded mb-2 shadow-preview ${token}`} />
-          <div className="fw-semibold small text-dark mb-1">
-            <CopyBadge text={token}>{token}</CopyBadge>
-          </div>
+          <div className="fw-semibold small text-dark mb-1">{token}</div>
           <div className="small text-muted">{value}</div>
         </div>
       ))}
@@ -323,18 +319,19 @@ export function ElevationShadow() {
  */
 export function FocusRingShadow() {
   return (
-    <div className="d-flex flex-wrap gap-4 p-2 mb-4">
-      {FocusRingShadows.map(({ token = "", usage = "" }) => (
-        <div key={token} className="w-25">
-          <div
-            className={`bg-white rounded mb-2 border focus-preview ${token}`}
-          />
-          <div className="fw-semibold small text-dark mb-1">
-            <CopyBadge text={token}>{token}</CopyBadge>
+    <div className="sb-unstyled d-flex flex-wrap gap-6 p-2 mb-4">
+      {FocusRingShadows.map(
+        ({ token = "", border = "", value = "", usage = "" }) => (
+          <div key={token} title={usage} className="focus-item">
+            <div
+              style={{ "--bs-border-color": border }}
+              className={`bg-white rounded mb-2 border focus-preview ${token}`}
+            />
+            <div className="fw-semibold small text-dark mb-1">{token}</div>
+            <div className="small text-muted">{value}</div>
           </div>
-          <div className="small text-muted">{usage}</div>
-        </div>
-      ))}
+        ),
+      )}
     </div>
   );
 }

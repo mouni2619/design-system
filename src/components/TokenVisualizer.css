@@ -25,10 +25,6 @@
   height: 22px;
 }
 
-.ref-badge {
-  font-size: 11px;
-}
-
 .weight-swatch {
   width: 88px !important;
   height: 88px !important;
@@ -49,16 +45,12 @@
   height: 96px;
 }
 
-.strength-box {
-  border-style: solid;
-}
-
 .shadow-item,
 .focus-item {
-  width: 150px;
+  width: 180px;
 }
 
 .shadow-preview,
 .focus-preview {
-  height: 100px;
+  height: 95px;
 }
