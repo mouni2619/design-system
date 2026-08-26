@@ -12,7 +12,11 @@ import "@components/TokenVisualizer.css";
 
 const SAMPLE = "The quick brown fox jumps over the lazy dog";
 
-// Component to display a copy badge with copy functionality
+/**
+ * Copy Badge
+ * @param {String} text
+ * @param {Node} children
+ */
 function CopyBadge({ text = "", children = null }) {
   const [copied, setCopied] = useState(false);
 
@@ -34,7 +38,7 @@ function CopyBadge({ text = "", children = null }) {
     <span
       onClick={handleCopy}
       title="Click to copy"
-      className={`d-inline-flex align-items-center gap-1 px-2 py-1 rounded user-select-none ${copyBadgeClass} copy-badge`}
+      className={`d-inline-flex align-items-center gap-1 px-2 py-1 rounded user-select-none copy-badge ${copyBadgeClass}`}
     >
       {children}
       {copied && <span className="small fw-bold">✓ Copied</span>}
@@ -42,70 +46,141 @@ function CopyBadge({ text = "", children = null }) {
   );
 }
 
-// Theme Token Grid Component
-export function ThemeTokenGrid({ title = "", tokens = [], prefix = "" }) {
-  const [query, setQuery] = useState("");
-
-  const filtered = tokens.filter(
-    ([name, ref]) =>
-      name.toLowerCase().includes(query.toLowerCase()) ||
-      ref.toLowerCase().includes(query.toLowerCase()),
-  );
-
+/**
+ * Palette Grid
+ * @param {Object} palettes
+ */
+export function PaletteGrid({ palettes = {} }) {
   return (
-    <div className="mb-5">
-      <div className="d-flex justify-content-between align-items-center mb-3">
-        <h4 className="h6 fw-bold mb-0 text-dark">
-          {title} ({tokens.length})
-        </h4>
-        <input
-          type="text"
-          placeholder="Filter tokens..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          className="form-control form-control-sm token-filter-input"
-        />
-      </div>
-
-      <div className="row g-3">
-        {filtered.map(([name = "", ref = "", hex = ""]) => (
-          <div key={name} className="col-12 col-md-6 col-lg-4">
-            <div className="p-3 border rounded-3 bg-white d-flex align-items-center gap-3 shadow-sm h-100 token-card">
-              {/* Color Box Preview */}
+    <div className="sb-unstyled d-flex flex-column overflow-auto">
+      {Object.entries(palettes).map(([name, colors]) => (
+        <div
+          key={name}
+          className="d-flex align-items-center py-3 border-bottom border-secondary-emp-4"
+        >
+          <h4 className="h6 fw-semibold mb-0 text-black flex-shrink-0 palette-name">
+            {name}
+          </h4>
+          <div className="d-flex flex-nowrap">
+            {Object.entries(colors).map(([token, hex], index) => (
               <div
-                className={`rounded-2 border flex-shrink-0 color-swatch bg-${name}`}
-              />
-              <div className="flex-grow-1 text-truncate">
-                <div className="fw-bold text-dark mb-1 small text-truncate">
-                  <CopyBadge text={name}>
-                    <span>
-                      {prefix}-{name}
-                    </span>
-                  </CopyBadge>
-                </div>
-
-                <div className="small text-muted d-flex align-items-center gap-1 ref-row">
-                  <span className="small ref-label">Ref:</span>
-                  <span className="badge bg-light text-secondary border fw-normal px-2 py-1 ref-badge">
-                    {ref}
-                  </span>
-                  <span className="text-muted ms-1">|</span>
-                  <CopyBadge text={hex}>
-                    <span className="text-secondary font-monospace ms-1">
-                      {hex}
-                    </span>
-                  </CopyBadge>
+                key={token}
+                title={token}
+                className="text-center flex-shrink-0 palette-swatch"
+              >
+                <div className="caption text-secondary mb-2">{index + 1}</div>
+                <div
+                  className="mx-auto palette-swatch-color"
+                  style={{ backgroundColor: hex }}
+                />
+                <div className="caption text-secondary font-monospace mt-2">
+                  {hex}
                 </div>
               </div>
-            </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
 }
 
-// Weight Swatches Component
+const TABLE_CELL =
+  "border border-secondary-emp-4 text-start align-middle px-4 py-3";
+
+/**
+ * Theme Token Table
+ * @param {Array} groups
+ */
+export function ThemeTokenTable({ groups = [] }) {
+  const total = groups.reduce((sum, { tokens = [] }) => sum + tokens.length, 0);
+
+  return (
+    <div className="sb-unstyled mb-5">
+      <p className="small text-secondary mb-3">All {total} tokens</p>
+
+      {groups.map(({ title = "", baseHex = "", tokens = [] }) => (
+        <div
+          key={title}
+          className="border rounded-3 bg-white mb-4 overflow-hidden"
+        >
+          <div className="d-flex justify-content-between align-items-center gap-2 px-3 py-3 border-bottom">
+            <span className="d-inline-flex align-items-center gap-2 fw-semibold text-dark">
+              <span
+                className="d-inline-block rounded-circle theme-group-dot"
+                style={{ backgroundColor: baseHex }}
+              />
+              {title}
+            </span>
+            <span className="small text-secondary flex-shrink-0">
+              {tokens.length} tokens
+            </span>
+          </div>
+
+          <div className="overflow-auto">
+            <table className="w-100">
+              <thead>
+                <tr className="text-secondary">
+                  <th className={`fw-normal ${TABLE_CELL}`}>Swatch</th>
+                  <th className={`fw-normal ${TABLE_CELL}`}>Token Name</th>
+                  <th className={`fw-normal ${TABLE_CELL}`}>Palette Ref</th>
+                  <th className={`fw-normal ${TABLE_CELL}`}>HEX Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                {tokens.map(
+                  ({ token = "", alias = "", ref = "", hex = "" }) => (
+                    <tr key={token}>
+                      <td className={TABLE_CELL}>
+                        <span
+                          className="d-block rounded-1 border border-secondary-emp-4 theme-token-swatch"
+                          style={{ backgroundColor: hex }}
+                        />
+                      </td>
+                      <td className={`text-nowrap ${TABLE_CELL}`}>
+                        <CopyBadge text={token}>
+                          <span className="font-monospace fw-semibold text-dark">
+                            {token}
+                          </span>
+                        </CopyBadge>
+                        {alias && (
+                          <>
+                            <span className="text-secondary mx-1">/</span>
+                            <CopyBadge text={alias}>
+                              <span className="font-monospace text-secondary">
+                                {alias}
+                              </span>
+                            </CopyBadge>
+                          </>
+                        )}
+                      </td>
+                      <td className={TABLE_CELL}>
+                        <span className="badge bg-light text-secondary border fw-normal px-2 py-1 ref-badge">
+                          {ref}
+                        </span>
+                      </td>
+                      <td className={TABLE_CELL}>
+                        <CopyBadge text={hex}>
+                          <span className="font-monospace text-secondary">
+                            {hex}
+                          </span>
+                        </CopyBadge>
+                      </td>
+                    </tr>
+                  ),
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/**
+ * Weight Swatches
+ */
 export function WeightSwatches() {
   return (
     <div className="d-flex flex-wrap gap-3 mb-4">
@@ -125,7 +200,9 @@ export function WeightSwatches() {
   );
 }
 
-// Type Scale Component
+/**
+ * Type Scale
+ */
 export function StyleMatrix() {
   const tokens = [...TypeScale].reverse();
 
@@ -150,7 +227,9 @@ export function StyleMatrix() {
   );
 }
 
-// Spacing Scale Component
+/**
+ * Spacing Scale
+ */
 export function SpacingScale() {
   return (
     <div className="mb-4">
@@ -171,10 +250,12 @@ export function SpacingScale() {
   );
 }
 
-// Border Radius Scale Component
+/**
+ * Border Radius Scale
+ */
 export function RadiusScale() {
   return (
-    <div className="d-flex flex-wrap gap-4 py-3 mb-4">
+    <div className="sb-unstyled d-flex flex-wrap gap-4 py-3 mb-4">
       {BorderRadius.map(({ token = "", value = 0 }) => {
         const isCircle = token.includes("circle") || value >= 999;
         const displayValue = isCircle ? "50%" : `${value}px`;
@@ -182,7 +263,7 @@ export function RadiusScale() {
         return (
           <div key={token} className="text-center scale-item">
             <div
-              className={`mx-auto mb-3 bg-light border border-2 border-secondary-emp-5 radius-box ${token}`}
+              className={`mx-auto mb-3 bg-light border border-2 border-secondary-emp-8 radius-box ${token}`}
             />
             <div className="mb-1">
               <CopyBadge text={token}>{token}</CopyBadge>
@@ -195,10 +276,12 @@ export function RadiusScale() {
   );
 }
 
-// Border Strength Scale Component
+/**
+ * Border Strength Scale
+ */
 export function StrengthScale() {
   return (
-    <div className="d-flex flex-wrap gap-4 py-3 mb-4">
+    <div className="sb-unstyled d-flex flex-wrap gap-4 py-3 mb-4">
       {BorderStrength.map(({ token = "", value = 0 }) => (
         <div key={token} className="text-center scale-item">
           <div
@@ -216,7 +299,9 @@ export function StrengthScale() {
   );
 }
 
-// Elevation Shadow Component
+/**
+ * Elevation Shadow
+ */
 export function ElevationShadow() {
   return (
     <div className="d-flex flex-wrap gap-4 p-2 mb-4">
@@ -233,7 +318,9 @@ export function ElevationShadow() {
   );
 }
 
-// Focus Ring Shadow Component
+/**
+ * Focus Ring Shadow
+ */
 export function FocusRingShadow() {
   return (
     <div className="d-flex flex-wrap gap-4 p-2 mb-4">
