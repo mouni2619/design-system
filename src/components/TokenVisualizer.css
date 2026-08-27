@@ -25,14 +25,52 @@
   height: 22px;
 }
 
+.type-name {
+  width: 72px;
+}
+
+.type-sample {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.type-metric {
+  width: 92px;
+}
+
 .weight-swatch {
   width: 88px !important;
   height: 88px !important;
   font-size: 40px !important;
 }
 
+.text-color-ref {
+  width: 132px;
+}
+
+.text-color-swatch {
+  width: 12px;
+  height: 12px;
+}
+
+.text-color-swatch-default {
+  background-color: var(--bs-body-color);
+}
+
+.text-color-hex {
+  width: 64px;
+}
+
+.space-name {
+  width: 157px;
+}
+
+.space-track {
+  width: 177px;
+}
+
 .space-bar {
-  height: 24px;
+  height: 20px;
 }
 
 .scale-item {

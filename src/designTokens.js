@@ -75,33 +75,47 @@ export const TypeScale = [
 
 export const Spacing = [
   {
-    token: "w-1",
+    token: "Space-3xs",
+    widthClass: "w-1",
     value: SpaceTokens["3xs"],
     usage:
       "Radio & checkbox to labels, button stack, progress bar to text, tags, input to error msg",
   },
   {
-    token: "w-2",
+    token: "Space-2xs",
+    widthClass: "w-2",
     value: SpaceTokens["2xs"],
     usage:
       "buttons, form inputs, options & autocomplete, error message + exp, tab, chips",
   },
   {
-    token: "w-3",
+    token: "Space-xs",
+    widthClass: "w-3",
     value: SpaceTokens.xs,
     usage:
       "Toast, exp blocks, toast icon + text, tooltip, accordion, breadcrumb, table cells",
   },
-  { token: "w-4", value: SpaceTokens.sm, usage: "—" },
+  { token: "Space-sm", widthClass: "w-4", value: SpaceTokens.sm, usage: "" },
   {
-    token: "w-5",
+    token: "Space-md",
+    widthClass: "w-5",
     value: SpaceTokens.md,
     usage:
       "Page margins, gutter, modals, popovers, buttons, tabs, calendar, stepper, upload states",
   },
-  { token: "w-6", value: SpaceTokens.lg, usage: "—" },
-  { token: "w-7", value: SpaceTokens.xl, usage: "Upload" },
-  { token: "w-8", value: SpaceTokens["2xl"], usage: "—" },
+  { token: "Space-lg", widthClass: "w-6", value: SpaceTokens.lg, usage: "" },
+  {
+    token: "Space-xl",
+    widthClass: "w-7",
+    value: SpaceTokens.xl,
+    usage: "Upload",
+  },
+  {
+    token: "Space-2xl",
+    widthClass: "w-8",
+    value: SpaceTokens["2xl"],
+    usage: "",
+  },
 ];
 
 export const BorderRadius = [
@@ -413,6 +427,73 @@ export const FontWeights = [
   { name: "fw-medium", value: FontWeight.medium },
   { name: "fw-semibold", value: FontWeight.semibold },
   { name: "fw-bold", value: FontWeight.bold },
+];
+
+export const TextColors = [
+  {
+    role: "Page title",
+    ref: "Grey 9",
+    hex: Grey["gray-900"],
+    className: "",
+    bgClassName: "text-color-swatch-default",
+  },
+  {
+    role: "Primary Text (body)",
+    ref: "Grey 8",
+    hex: Grey["gray-800"],
+    className: "text-secondary-emp-8",
+    bgClassName: "bg-secondary-emp-8",
+  },
+  {
+    role: "Secondary Text (page subtitle & subheading, body)",
+    ref: "Grey 7",
+    hex: Grey["gray-700"],
+    className: "text-secondary",
+    bgClassName: "bg-secondary",
+  },
+  {
+    role: "Info",
+    ref: "Daybreak Blue 6",
+    hex: DaybreakBlue["blue-600"],
+    className: "text-info",
+    bgClassName: "bg-info",
+  },
+  {
+    role: "Success",
+    ref: "Polar Green 6",
+    hex: PolarGreen["green-600"],
+    className: "text-success",
+    bgClassName: "bg-success",
+  },
+  {
+    role: "Warning",
+    ref: "Sunset Orange 6",
+    hex: SunsetOrange["orange-600"],
+    className: "text-warning",
+    bgClassName: "bg-warning",
+  },
+  {
+    role: "Error",
+    ref: "Dust Red 6",
+    hex: DustRed["red-600"],
+    className: "text-danger",
+    bgClassName: "bg-danger",
+  },
+  {
+    // bg-disable is $gray-300, not $gray-600 — see $custom-bg-colors
+    role: "Disable/mute",
+    ref: "Grey 6",
+    hex: Grey["gray-600"],
+    className: "text-disable",
+    bgClassName: "bg-disable-emp-6",
+  },
+  {
+    role: "Link",
+    ref: "Daybreak Blue 6",
+    hex: DaybreakBlue["blue-600"],
+    className: "text-link",
+    bgClassName: "bg-link",
+  },
 ];
 
 export const Palettes = {

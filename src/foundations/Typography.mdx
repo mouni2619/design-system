@@ -1,46 +1,37 @@
 import { Meta } from "@storybook/addon-docs/blocks";
-import { WeightSwatches, StyleMatrix } from "@components/TokenVisualizer";
-import { TypeScale } from "@design-tokens";
+import {
+  TypeSpecimen,
+  WeightSwatches,
+  StyleMatrix,
+  TextColor,
+} from "@components/TokenVisualizer";
 
 <Meta title="Foundations/Typography" />
 
 # Typography
 
-Font family — **Inter**.
+Inter with system sans-serif fallbacks, on an eight-step scale and five weights.
 
-## Font Scale & Metrics
+## Type scale
 
-<div className="my-3 table-responsive">
-  <table className="table table-bordered table-hover align-middle mb-0">
-    <thead className="table-light">
-      <tr>
-        <th scope="col" className="text-dark">Token</th>
-        <th scope="col" className="text-dark">Font size</th>
-        <th scope="col" className="text-dark">Line height</th>
-        <th scope="col" className="text-dark">Letter spacing</th>
-      </tr>
-    </thead>
-    <tbody>
-      {TypeScale.map((t) => (
-        <tr key={t.token}>
-          <td className="fw-semibold text-dark">{t.token}</td>
-          <td className="text-secondary">{t.fontSize}px</td>
-          <td className="text-secondary">{t.lineHeight}px</td>
-          <td className="text-secondary">{t.letterSpacing}px</td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
-</div>
+Eight tokens from `caption` (10px) up to `h1` (30px), each carrying its own line height and letter spacing.
 
----
+<TypeSpecimen />
 
-## Font Weight
+## Font weights
+
+Five weights from `fw-light` (300) to `fw-bold` (700).
 
 <WeightSwatches />
 
----
+## Styles matrix
 
-## Styles Matrix
+Every scale token rendered at every weight.
 
 <StyleMatrix />
+
+## Typography color
+
+Nine text roles, each mapped to a step on one of the palettes. Page titles inherit Grey 9 from the body color, so `h1` needs no class; the rest apply their utility.
+
+<TextColor />

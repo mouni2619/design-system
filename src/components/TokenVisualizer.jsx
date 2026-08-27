@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   TypeScale,
   FontWeights,
+  TextColors,
   Spacing,
   BorderRadius,
   BorderStrength,
@@ -10,7 +11,8 @@ import {
 } from "@design-tokens";
 import "@components/TokenVisualizer.css";
 
-const SAMPLE = "The quick brown fox jumps over the lazy dog";
+const SPECIMEN = "The quick brown fox";
+const MATRIX_SAMPLE = "Ag";
 
 /**
  * Copy Badge
@@ -183,17 +185,16 @@ export function ThemeTokenTable({ groups = [] }) {
  */
 export function WeightSwatches() {
   return (
-    <div className="d-flex flex-wrap gap-3 mb-4">
+    <div className="sb-unstyled d-flex flex-wrap gap-4 py-3 mb-4">
       {FontWeights.map(({ name = "", value = 0 }) => (
-        <div key={value} className="text-center">
+        <div key={value} className="text-center scale-item">
           <div
-            className={`border rounded d-flex align-items-center justify-content-center text-dark bg-white weight-swatch ${name}`}
+            className={`mx-auto mb-2 border rounded d-flex align-items-center justify-content-center text-dark bg-white weight-swatch ${name}`}
           >
-            S
+            {MATRIX_SAMPLE}
           </div>
-          <div className="small text-muted mt-1">
-            {name} {value}
-          </div>
+          <div className="fw-semibold small text-dark mb-1">{name}</div>
+          <div className="small text-muted">{value}</div>
         </div>
       ))}
     </div>
@@ -201,28 +202,128 @@ export function WeightSwatches() {
 }
 
 /**
- * Type Scale
+ * Type Specimen
+ */
+export function TypeSpecimen() {
+  return (
+    <div className="sb-unstyled border-bottom border-secondary-emp-4 mb-4">
+      <div className="d-flex align-items-center gap-3 py-2 caption text-secondary">
+        <div className="flex-shrink-0 type-name">Token</div>
+        <div className="type-sample">Preview</div>
+        <div className="flex-shrink-0 type-metric">Size</div>
+        <div className="flex-shrink-0 type-metric">Line height</div>
+        <div className="flex-shrink-0 type-metric">Letter spacing</div>
+      </div>
+
+      {TypeScale.map(
+        ({ token = "", fontSize = 0, lineHeight = 0, letterSpacing = 0 }) => (
+          <div
+            key={token}
+            className="d-flex align-items-center gap-3 py-3 border-top border-secondary-emp-4"
+          >
+            <div className="fw-semibold small text-dark flex-shrink-0 type-name">
+              {token}
+            </div>
+            <div className={`text-dark text-truncate type-sample ${token}`}>
+              {SPECIMEN}
+            </div>
+            <div className="small text-secondary flex-shrink-0 type-metric">
+              {fontSize}px
+            </div>
+            <div className="small text-secondary flex-shrink-0 type-metric">
+              {lineHeight}px
+            </div>
+            <div className="small text-secondary flex-shrink-0 type-metric">
+              {letterSpacing}px
+            </div>
+          </div>
+        ),
+      )}
+    </div>
+  );
+}
+
+/**
+ * Styles Matrix
  */
 export function StyleMatrix() {
-  const tokens = [...TypeScale].reverse();
-
   return (
-    <div className="mb-4">
-      {tokens.map(({ token = "", fontSize = 0 } = {}) => (
-        <div key={token} className="border-top py-3">
-          {FontWeights.map(({ name = "", value = 0 }) => (
-            <div key={value} className="row align-items-baseline py-1 g-2">
-              <div className="col-12 col-md-3 small text-muted">
-                Inter · {name} · {fontSize}px · {value}
-              </div>
-              <div className="col-12 col-md-1 small text-muted">{token}</div>
-              <div className={`col-12 col-md-8 text-dark ${token} ${name}`}>
-                {SAMPLE}
-              </div>
-            </div>
+    <div className="sb-unstyled overflow-auto mb-4">
+      <table className="w-100">
+        <thead>
+          <tr className="text-secondary">
+            <th className={`fw-normal ${TABLE_CELL}`}>Token</th>
+            {FontWeights.map(({ name = "", value = 0 }) => (
+              <th key={value} className={`fw-normal text-nowrap ${TABLE_CELL}`}>
+                {name}
+                <span className="d-block caption">{value}</span>
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {TypeScale.map(({ token = "", fontSize = 0 }) => (
+            <tr key={token}>
+              <th className={`text-nowrap fw-semibold text-dark ${TABLE_CELL}`}>
+                {token}
+                <span className="d-block caption fw-normal text-secondary">
+                  {fontSize}px
+                </span>
+              </th>
+              {FontWeights.map(({ name = "", value = 0 }) => (
+                <td
+                  key={value}
+                  title={`${token} · ${name} · ${value}`}
+                  className={`text-dark ${TABLE_CELL} ${token} ${name}`}
+                >
+                  {MATRIX_SAMPLE}
+                </td>
+              ))}
+            </tr>
           ))}
-        </div>
-      ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+/**
+ * Text Color
+ */
+export function TextColor() {
+  return (
+    <div className="sb-unstyled mb-4">
+      {TextColors.map(
+        ({
+          role = "",
+          ref = "",
+          hex = "",
+          className = "",
+          bgClassName = "",
+        }) => (
+          <div key={role} className="d-flex">
+            <div className="small text-secondary text-end align-self-center flex-shrink-0 pe-3 text-color-ref">
+              {ref}
+            </div>
+            <div className="d-flex align-items-center gap-2 flex-grow-1 ps-3 py-3 border-start border-secondary-emp-4">
+              <span
+                className={`rounded-1 flex-shrink-0 text-color-swatch ${bgClassName}`}
+              />
+              <span className={`flex-grow-1 ${className}`}>{role}</span>
+              {className ? (
+                <CopyBadge text={className}>
+                  <span className="font-monospace caption">{className}</span>
+                </CopyBadge>
+              ) : (
+                <span className="caption text-secondary">inherited</span>
+              )}
+              <span className="font-monospace caption text-secondary flex-shrink-0 text-color-hex">
+                {hex}
+              </span>
+            </div>
+          </div>
+        ),
+      )}
     </div>
   );
 }
@@ -232,18 +333,20 @@ export function StyleMatrix() {
  */
 export function SpacingScale() {
   return (
-    <div className="mb-4">
-      {Spacing.map(({ token = "", value = 0, usage = "" }) => (
-        <div key={token} className="row align-items-center py-2 border-top g-3">
-          <div className="col-12 col-md-2 fw-semibold small text-dark">
-            <CopyBadge text={token}>{token}</CopyBadge>
+    <div className="sb-unstyled border-bottom border-secondary-emp-4 mb-4">
+      {Spacing.map(({ token = "", widthClass = "", value = 0, usage = "" }) => (
+        <div
+          key={token}
+          title={usage}
+          className="d-flex align-items-center py-3 border-top border-secondary-emp-4"
+        >
+          <div className="fw-semibold small text-dark flex-shrink-0 space-name">
+            {token}
           </div>
-          <div className="col-12 col-md-3">
-            <div className={`bg-primary space-bar ${token}`} />
+          <div className="flex-shrink-0 space-track">
+            <div className={`bg-primary rounded-1 space-bar ${widthClass}`} />
           </div>
-          <div className="col-12 col-md-7 small text-secondary">
-            {value}px — <span className="text-muted">{usage}</span>
-          </div>
+          <div className="small text-secondary">{value}px</div>
         </div>
       ))}
     </div>
