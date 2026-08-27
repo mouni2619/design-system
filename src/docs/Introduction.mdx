@@ -1,0 +1,50 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Introduction" />
+
+# Mandark Design System
+
+Design tokens, foundations and components for Mandark products.
+
+## Where things live
+
+| Directory | Holds |
+| --- | --- |
+| `src/tokens/` | Raw primitive values — the source of truth. One file per topic. |
+| `src/styles/` | The SCSS layer: Bootstrap configuration, variables, base type. |
+| `src/theme/` | The Ant Design `ConfigProvider` theme derived from the tokens. |
+| `src/components/` | Shipped components, one folder each, with their stories. |
+| `src/docs/` | These documentation pages and the blocks that render them. |
+
+## Import convention
+
+Import the specific topic, not a folder. `@tokens` and `@docs` deliberately
+have no barrel file, so a bare `from "@tokens"` will not resolve.
+
+```js
+import { FontSize } from "@tokens/typography"; // yes
+import { FontSize } from "@tokens";            // no
+```
+
+This keeps dependencies greppable — `@tokens/shadow` finds every shadow
+consumer — which matters as the SCSS variables move to being generated from
+`src/tokens/`.
+
+**Every internal import is aliased.** Relative paths are not used anywhere in
+`src/`, including for a file's own siblings and its stylesheet:
+
+```js
+import { CopyBadge } from "@docs/blocks/primitives"; // yes
+import { CopyBadge } from "./primitives";            // no
+import "@docs/blocks/blocks.css";                    // yes, even for CSS
+```
+
+The aliases are defined in `.storybook/aliases.js` and mirrored in
+`jsconfig.json` so the editor resolves them too — add a new one to both.
+
+## Adding a component
+
+Copy `src/components/Button/`. Each component is a folder with `Name.jsx`,
+`Name.stories.jsx` and an `index.js`. Components that wrap Ant Design sit
+alongside ones written from scratch — the import path should not reveal which
+is which, so the implementation stays swappable.

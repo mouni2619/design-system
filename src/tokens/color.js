@@ -1,5 +1,7 @@
 /**
- * Mandark Design System V1.0 — Design Tokens
+ * Color tokens
+ *
+ * Ten base palettes, then the functional theme aliases mapped onto them.
  */
 
 export const DaybreakBlue = {
@@ -207,88 +209,4 @@ export const ThemeColors = {
   "disable-emp-6": Grey["gray-600"],
   black: Grey["gray-1000"],
   white: Grey["gray-100"],
-};
-
-export const FontSize = {
-  h1: 30,
-  h2: 24,
-  h3: 20,
-  h4: 18,
-  h5: 16,
-  h6: 14,
-  body: 12,
-  caption: 10,
-};
-
-export const LineHeight = {
-  h1: 36,
-  h2: 30,
-  h3: 26,
-  h4: 24,
-  h5: 22,
-  h6: 20,
-  body: 18,
-  caption: 16,
-};
-
-export const LetterSpacing = {
-  h1: -0.6,
-  h2: -0.4,
-  h3: -0.2,
-  h4: 0,
-  h5: 0,
-  h6: 0,
-  body: 0,
-  caption: 0,
-};
-
-export const FontFamily =
-  "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
-
-export const FontWeight = {
-  light: 300,
-  normal: 400,
-  medium: 500,
-  semibold: 600,
-  bold: 700,
-};
-
-// Raw Spacing Values
-export const SpaceTokens = {
-  "3xs": 4,
-  "2xs": 8,
-  xs: 12,
-  sm: 16,
-  md: 20,
-  lg: 24,
-  xl: 28,
-  "2xl": 32,
-};
-
-// Raw Border Radius Values
-export const RadiusTokens = {
-  sm: 4,
-  md: 6,
-  lg: 8,
-  xl: 12,
-  xxl: 16,
-  pill: 50,
-  circle: 999,
-};
-
-// Raw Border Widths
-export const BorderWidthTokens = {
-  1: 1,
-  2: 2,
-  3: 3,
-  4: 4,
-  5: 5,
-};
-
-// Raw Shadow Geometry
-export const ShadowGeometry = {
-  sm: "0 2px 4px 0",
-  md: "0 4px 8px 0",
-  lg: "0 8px 12px 2px",
-  focus: "0 0 0 4px",
 };

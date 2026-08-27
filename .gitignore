@@ -2,3 +2,6 @@ node_modules/
 
 # Package lock
 package-lock.json
+
+# Storybook build output
+storybook-static/

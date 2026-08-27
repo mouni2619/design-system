@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"],
+      "@tokens/*": ["./src/tokens/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@theme/*": ["./src/theme/*"],
+      "@components/*": ["./src/components/*"],
+      "@docs/*": ["./src/docs/*"]
+    },
+    "jsx": "react-jsx",
+    "checkJs": false
+  },
+  "include": ["src", ".storybook"],
+  "exclude": ["node_modules", "storybook-static"]
+}
