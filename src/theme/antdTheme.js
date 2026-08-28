@@ -3,6 +3,7 @@ import { FontFamily, FontSize, LineHeight } from "@tokens/typography";
 import { RadiusTokens, BorderWidthTokens } from "@tokens/border";
 import { ShadowGeometry } from "@tokens/shadow";
 
+// TODO: Update the AntD Config
 /**
  * Ant Design ConfigProvider theme, derived from the design tokens.
  */
@@ -16,7 +17,7 @@ export const antdTheme = {
     colorInfo: ThemeColors.info,
     colorLink: ThemeColors.link,
     colorTextBase: Grey["gray-800"],
-    colorBgBase: Grey.white,
+    colorBgBase: ThemeColors.white,
     colorBorder: ThemeColors["secondary-emp-5"],
 
     // Typography — AntD derives its own scale from fontSize, so the heading

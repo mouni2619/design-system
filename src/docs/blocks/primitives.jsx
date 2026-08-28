@@ -23,7 +23,7 @@ export function CopyBadge({ text = "", children = null }) {
 
   const copyBadgeClass = copied
     ? "bg-primary-subtle text-primary"
-    : "bg-light text-dark";
+    : "bg-secondary-emp-3";
 
   return (
     <span

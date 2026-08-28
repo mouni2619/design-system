@@ -54,16 +54,15 @@ export function ThemeTokenTable({ groups = [] }) {
     <div className="sb-unstyled mb-5">
       <p className="small text-secondary mb-3">All {total} tokens</p>
 
-      {groups.map(({ title = "", baseHex = "", tokens = [] }) => (
+      {groups.map(({ title = "", baseToken = "", tokens = [] }) => (
         <div
           key={title}
           className="border rounded-3 bg-white mb-4 overflow-hidden"
         >
           <div className="d-flex justify-content-between align-items-center gap-2 px-3 py-3 border-bottom">
-            <span className="d-inline-flex align-items-center gap-2 fw-semibold text-dark">
+            <span className="d-inline-flex align-items-center gap-2 fw-semibold">
               <span
-                className="d-inline-block rounded-circle theme-group-dot"
-                style={{ backgroundColor: baseHex }}
+                className={`d-inline-block rounded-circle theme-group-dot bg-${baseToken}`}
               />
               {title}
             </span>
@@ -88,13 +87,12 @@ export function ThemeTokenTable({ groups = [] }) {
                     <tr key={token}>
                       <td className={TABLE_CELL}>
                         <span
-                          className="d-block rounded-1 border border-secondary-emp-4 theme-token-swatch"
-                          style={{ backgroundColor: hex }}
+                          className={`d-block rounded-1 border border-secondary-emp-4 theme-token-swatch bg-${token}`}
                         />
                       </td>
                       <td className={`text-nowrap ${TABLE_CELL}`}>
                         <CopyBadge text={token}>
-                          <span className="font-monospace fw-semibold text-dark">
+                          <span className="font-monospace fw-semibold">
                             {token}
                           </span>
                         </CopyBadge>
@@ -110,7 +108,7 @@ export function ThemeTokenTable({ groups = [] }) {
                         )}
                       </td>
                       <td className={TABLE_CELL}>
-                        <span className="badge bg-light text-secondary border fw-normal px-2 py-1 caption">
+                        <span className="d-inline-block bg-secondary-emp-3 text-secondary border rounded-1 fw-normal px-2 py-1 caption">
                           {ref}
                         </span>
                       </td>

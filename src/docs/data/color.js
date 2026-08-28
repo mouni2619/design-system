@@ -16,7 +16,7 @@ import {
 export const ThemeTokenGroups = [
   {
     title: "Primary & Link (Blue Gradient)",
-    baseHex: DaybreakBlue["blue-600"],
+    baseToken: "primary",
     tokens: [
       {
         token: "primary-emp-1",
@@ -52,33 +52,33 @@ export const ThemeTokenGroups = [
   },
   {
     title: "Secondary & Neutral (Grey Gradient)",
-    baseHex: Grey["gray-700"],
+    baseToken: "secondary",
     tokens: [
-      { token: "white", ref: "Grey/1", hex: Grey.white },
-      { token: "secondary-emp-2", ref: "Grey/3", hex: Grey["gray-200"] },
-      { token: "secondary-emp-3", ref: "Grey/4", hex: Grey["gray-300"] },
-      { token: "secondary-emp-4", ref: "Grey/5", hex: Grey["gray-400"] },
-      { token: "secondary-emp-5", ref: "Grey/6", hex: Grey["gray-500"] },
+      { token: "white", ref: "Grey/1", hex: Grey["gray-100"] },
+      { token: "secondary-emp-2", ref: "Grey/2", hex: Grey["gray-200"] },
+      { token: "secondary-emp-3", ref: "Grey/3", hex: Grey["gray-300"] },
+      { token: "secondary-emp-4", ref: "Grey/4", hex: Grey["gray-400"] },
+      { token: "secondary-emp-5", ref: "Grey/5", hex: Grey["gray-500"] },
       {
         token: "secondary-emp-6",
         alias: "disable",
-        ref: "Grey/7",
+        ref: "Grey/6",
         hex: Grey["gray-600"],
       },
-      { token: "secondary", ref: "Grey/8", hex: Grey["gray-700"] },
+      { token: "secondary", ref: "Grey/7", hex: Grey["gray-700"] },
       {
         token: "secondary-emp-8",
         alias: "default",
-        ref: "Grey/9",
+        ref: "Grey/8",
         hex: Grey["gray-800"],
       },
-      { token: "dark", ref: "Grey/10", hex: Grey["gray-900"] },
-      { token: "black", ref: "Grey/11", hex: Grey["gray-1000"] },
+      { token: "dark", ref: "Grey/9", hex: Grey["gray-900"] },
+      { token: "black", ref: "Grey/10", hex: Grey["gray-1000"] },
     ],
   },
   {
     title: "Success (Green Gradient)",
-    baseHex: PolarGreen["green-600"],
+    baseToken: "success",
     tokens: [
       {
         token: "success-emp-1",
@@ -110,7 +110,7 @@ export const ThemeTokenGroups = [
   },
   {
     title: "Danger (Red Gradient)",
-    baseHex: DustRed["red-600"],
+    baseToken: "danger",
     tokens: [
       { token: "danger-emp-1", ref: "DustRed/1", hex: DustRed["red-100"] },
       { token: "danger-emp-2", ref: "DustRed/2", hex: DustRed["red-200"] },
@@ -122,7 +122,7 @@ export const ThemeTokenGroups = [
   },
   {
     title: "Info (Blue Gradient)",
-    baseHex: DaybreakBlue["blue-600"],
+    baseToken: "info",
     tokens: [
       {
         token: "info-emp-1",
@@ -154,7 +154,7 @@ export const ThemeTokenGroups = [
   },
   {
     title: "Warning (Orange Gradient)",
-    baseHex: SunsetOrange["orange-600"],
+    baseToken: "warning",
     tokens: [
       {
         token: "warning-emp-1",

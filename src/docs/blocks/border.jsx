@@ -18,7 +18,7 @@ export function RadiusScale() {
         return (
           <div key={token} className="text-center scale-item">
             <div
-              className={`mx-auto mb-3 bg-light border border-2 border-secondary-emp-8 radius-box ${token}`}
+              className={`mx-auto mb-3 bg-white border border-2 border-secondary-emp-8 radius-box ${token}`}
             />
             <div className="mb-1">
               <CopyBadge text={token}>{token}</CopyBadge>
@@ -42,7 +42,7 @@ export function StrengthScale() {
           <div
             className={`mx-auto mb-2 bg-white border border-secondary-emp-8 rounded strength-box radius-box ${token}`}
           />
-          <div className="fw-semibold small text-dark mb-1">
+          <div className="fw-semibold small mb-1">
             <CopyBadge text={token}>{token}</CopyBadge>
           </div>
           <div className="small text-muted">{value}px</div>

@@ -28,5 +28,8 @@
 // Loads typography (h1-h6) and utility generators for spacing (m-*, p-*),
 // colors, backgrounds, and display helpers based on custom tokens.
 @import "bootstrap/scss/type";
+// Single helper rather than all of "bootstrap/scss/helpers", which would also
+// pull in colored-links, focus-ring, ratio, position, stacks and vr.
+@import "bootstrap/scss/helpers/text-truncation";
 @import "bootstrap/scss/utilities";
 @import "bootstrap/scss/utilities/api";

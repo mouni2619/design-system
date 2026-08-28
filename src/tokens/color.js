@@ -57,7 +57,6 @@ export const PolarGreen = {
 };
 
 export const Grey = {
-  white: "#ffffff",
   "gray-100": "#ffffff",
   "gray-200": "#fafafa",
   "gray-300": "#f5f5f5",
@@ -207,6 +206,7 @@ export const ThemeColors = {
   // Disabled & Neutral
   "disable-emp-2": Grey["gray-200"],
   "disable-emp-6": Grey["gray-600"],
+  dark: Grey["gray-900"],
   black: Grey["gray-1000"],
   white: Grey["gray-100"],
 };

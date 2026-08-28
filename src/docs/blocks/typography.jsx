@@ -17,11 +17,11 @@ export function WeightSwatches() {
       {FontWeights.map(({ name = "", value = 0 }) => (
         <div key={value} className="text-center scale-item">
           <div
-            className={`mx-auto mb-2 border rounded d-flex align-items-center justify-content-center text-dark bg-white weight-swatch ${name}`}
+            className={`mx-auto mb-2 border rounded d-flex align-items-center justify-content-center bg-white weight-swatch ${name}`}
           >
             {MATRIX_SAMPLE}
           </div>
-          <div className="fw-semibold small text-dark mb-1">{name}</div>
+          <div className="fw-semibold small mb-1">{name}</div>
           <div className="small text-muted">{value}</div>
         </div>
       ))}
@@ -49,10 +49,10 @@ export function TypeSpecimen() {
             key={token}
             className="d-flex align-items-center gap-3 py-3 border-top border-secondary-emp-4"
           >
-            <div className="fw-semibold small text-dark flex-shrink-0 type-name">
+            <div className="fw-semibold small flex-shrink-0 type-name">
               {token}
             </div>
-            <div className={`text-dark text-truncate type-sample ${token}`}>
+            <div className={`text-truncate type-sample ${token}`}>
               {SPECIMEN}
             </div>
             <div className="small text-secondary flex-shrink-0 type-metric">
@@ -92,7 +92,7 @@ export function StyleMatrix() {
         <tbody>
           {TypeScale.map(({ token = "", fontSize = 0 }) => (
             <tr key={token}>
-              <th className={`text-nowrap fw-semibold text-dark ${TABLE_CELL}`}>
+              <th className={`text-nowrap fw-semibold ${TABLE_CELL}`}>
                 {token}
                 <span className="d-block caption fw-normal text-secondary">
                   {fontSize}px
@@ -102,7 +102,7 @@ export function StyleMatrix() {
                 <td
                   key={value}
                   title={`${token} · ${name} · ${value}`}
-                  className={`text-dark ${TABLE_CELL} ${token} ${name}`}
+                  className={`${TABLE_CELL} ${token} ${name}`}
                 >
                   {MATRIX_SAMPLE}
                 </td>

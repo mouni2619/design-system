@@ -16,7 +16,7 @@ export function SpacingScale() {
           title={usage}
           className="d-flex align-items-center py-3 border-top border-secondary-emp-4"
         >
-          <div className="fw-semibold small text-dark flex-shrink-0 space-name">
+          <div className="fw-semibold small flex-shrink-0 space-name">
             {token}
           </div>
           <div className="flex-shrink-0 space-track">

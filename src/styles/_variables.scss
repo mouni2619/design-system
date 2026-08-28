@@ -137,7 +137,7 @@ $green: $green-600;
 $orange: $orange-600;
 $red: $red-600;
 $light: $gray-100;
-$dark: $gray-800;
+$dark: $gray-900; // Matches the "dark" entry in $theme-colors and ThemeColors.
 
 $theme-colors: (
   "primary": $blue-600,
@@ -180,6 +180,8 @@ $theme-colors: (
   "info-emp-3": $blue-300,
   "info-emp-5": $blue-500,
   "info-emp-7": $blue-700,
+  "white": $white,
+  "dark": $gray-900,
   "black": $gray-1000,
   "disable-emp-2": $gray-200,
   "disable-emp-6": $gray-600,
@@ -254,8 +256,14 @@ $spacers: (
 }
 
 //Border Radius Tokens
+// Every step is pinned explicitly. `rounded-1`..`rounded-5` read the matching
+// --bs-border-radius-* custom property, so a step left unset silently falls back
+// to Bootstrap's default and renders something other than what the docs label.
+$border-radius-sm: 4px;
+$border-radius: 6px;
+$border-radius-lg: 8px;
 $border-radius-xl: 12px;
-$border-radius-2xl: 16px;
+$border-radius-xxl: 16px;
 
 //Elevation Shadows
 $box-shadow-sm: 0 2px 4px 0 $gray-400;
