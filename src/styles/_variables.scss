@@ -137,7 +137,7 @@ $green: $green-600;
 $orange: $orange-600;
 $red: $red-600;
 $light: $gray-100;
-$dark: $gray-800;
+$dark: $gray-900; // Matches the "dark" entry in $theme-colors and ThemeColors.
 
 $theme-colors: (
   "primary": $blue-600,
@@ -180,6 +180,8 @@ $theme-colors: (
   "info-emp-3": $blue-300,
   "info-emp-5": $blue-500,
   "info-emp-7": $blue-700,
+  "white": $white,
+  "dark": $gray-900,
   "black": $gray-1000,
   "disable-emp-2": $gray-200,
   "disable-emp-6": $gray-600,
@@ -195,22 +197,24 @@ $font-family-base:
   sans-serif;
 $font-size-base: 0.75rem; // 12px
 
-$h1-font-size: 30px !important;
-$h2-font-size: 24px !important;
-$h3-font-size: 20px !important;
-$h4-font-size: 18px !important;
-$h5-font-size: 16px !important;
-$h6-font-size: 14px !important;
+$body-color: $gray-900;
+
+$h1-font-size: 30px;
+$h2-font-size: 24px;
+$h3-font-size: 20px;
+$h4-font-size: 18px;
+$h5-font-size: 16px;
+$h6-font-size: 14px;
 $caption-font-size: 10px !default;
 
-$h1-line-height: 36px !important;
-$h2-line-height: 30px !important;
-$h3-line-height: 26px !important;
-$h4-line-height: 24px !important;
-$h5-line-height: 22px !important;
-$h6-line-height: 20px !important;
+$h1-line-height: 36px;
+$h2-line-height: 30px;
+$h3-line-height: 26px;
+$h4-line-height: 24px;
+$h5-line-height: 22px;
+$h6-line-height: 20px;
 
-$body-line-height: 18px !important;
+$body-line-height: 18px;
 $caption-line-height: 16px;
 
 $h1-letter-spacing: -0.6px;
@@ -254,8 +258,14 @@ $spacers: (
 }
 
 //Border Radius Tokens
+// Every step is pinned explicitly. `rounded-1`..`rounded-5` read the matching
+// --bs-border-radius-* custom property, so a step left unset silently falls back
+// to Bootstrap's default and renders something other than what the docs label.
+$border-radius-sm: 4px;
+$border-radius: 6px;
+$border-radius-lg: 8px;
 $border-radius-xl: 12px;
-$border-radius-2xl: 16px;
+$border-radius-xxl: 16px;
 
 //Elevation Shadows
 $box-shadow-sm: 0 2px 4px 0 $gray-400;
@@ -264,26 +274,32 @@ $box-shadow-lg: 0 8px 12px 2px $gray-400;
 
 $headings: (
   h1: (
+    $h1-font-size,
     $h1-line-height,
     $h1-letter-spacing,
   ),
   h2: (
+    $h2-font-size,
     $h2-line-height,
     $h2-letter-spacing,
   ),
   h3: (
+    $h3-font-size,
     $h3-line-height,
     $h3-letter-spacing,
   ),
   h4: (
+    $h4-font-size,
     $h4-line-height,
     $h4-letter-spacing,
   ),
   h5: (
+    $h5-font-size,
     $h5-line-height,
     $h5-letter-spacing,
   ),
   h6: (
+    $h6-font-size,
     $h6-line-height,
     $h6-letter-spacing,
   ),
@@ -292,8 +308,9 @@ $headings: (
 @each $tag, $properties in $headings {
   #{$tag},
   .#{$tag} {
-    line-height: nth($properties, 1);
-    letter-spacing: nth($properties, 2);
+    font-size: nth($properties, 1) !important;
+    line-height: nth($properties, 2) !important;
+    letter-spacing: nth($properties, 3);
   }
 }
 
@@ -315,7 +332,6 @@ $focus-shadows: (
 }
 
 $custom-text-colors: (
-  "body": $gray-800,
   "disable": $gray-600,
 );
 

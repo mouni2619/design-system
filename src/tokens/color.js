@@ -1,5 +1,7 @@
 /**
- * Mandark Design System V1.0 — Design Tokens
+ * Color tokens
+ *
+ * Ten base palettes, then the functional theme aliases mapped onto them.
  */
 
 export const DaybreakBlue = {
@@ -55,7 +57,6 @@ export const PolarGreen = {
 };
 
 export const Grey = {
-  "white": "#ffffff",
   "gray-100": "#ffffff",
   "gray-200": "#fafafa",
   "gray-300": "#f5f5f5",
@@ -149,7 +150,7 @@ export const Spray = {
 // 2. THEME COLORS (Mapped directly from above Base Colors)
 export const ThemeColors = {
   // Primary (Blue)
-  "primary": DaybreakBlue["blue-600"],
+  primary: DaybreakBlue["blue-600"],
   "primary-emp-1": DaybreakBlue["blue-100"],
   "primary-emp-2": DaybreakBlue["blue-200"],
   "primary-emp-3": DaybreakBlue["blue-300"],
@@ -157,7 +158,7 @@ export const ThemeColors = {
   "primary-emp-7": DaybreakBlue["blue-700"],
 
   // Secondary (Grey)
-  "secondary": Grey["gray-700"],
+  secondary: Grey["gray-700"],
   "secondary-emp-2": Grey["gray-200"],
   "secondary-emp-3": Grey["gray-300"],
   "secondary-emp-4": Grey["gray-400"],
@@ -166,7 +167,7 @@ export const ThemeColors = {
   "secondary-emp-8": Grey["gray-800"],
 
   // Success (Green)
-  "success": PolarGreen["green-600"],
+  success: PolarGreen["green-600"],
   "success-emp-1": PolarGreen["green-100"],
   "success-emp-2": PolarGreen["green-200"],
   "success-emp-3": PolarGreen["green-300"],
@@ -174,7 +175,7 @@ export const ThemeColors = {
   "success-emp-7": PolarGreen["green-700"],
 
   // Danger (Red)
-  "danger": DustRed["red-600"],
+  danger: DustRed["red-600"],
   "danger-emp-1": DustRed["red-100"],
   "danger-emp-2": DustRed["red-200"],
   "danger-emp-3": DustRed["red-300"],
@@ -182,7 +183,7 @@ export const ThemeColors = {
   "danger-emp-7": DustRed["red-700"],
 
   // Warning (Orange)
-  "warning": SunsetOrange["orange-600"],
+  warning: SunsetOrange["orange-600"],
   "warning-emp-1": SunsetOrange["orange-100"],
   "warning-emp-2": SunsetOrange["orange-200"],
   "warning-emp-3": SunsetOrange["orange-300"],
@@ -190,12 +191,12 @@ export const ThemeColors = {
   "warning-emp-7": SunsetOrange["orange-700"],
 
   // Link
-  "link": DaybreakBlue["blue-600"],
+  link: DaybreakBlue["blue-600"],
   "link-emp-5": DaybreakBlue["blue-500"],
   "link-emp-7": DaybreakBlue["blue-700"],
 
   // Info
-  "info": DaybreakBlue["blue-600"],
+  info: DaybreakBlue["blue-600"],
   "info-emp-1": DaybreakBlue["blue-100"],
   "info-emp-2": DaybreakBlue["blue-200"],
   "info-emp-3": DaybreakBlue["blue-300"],
@@ -205,82 +206,7 @@ export const ThemeColors = {
   // Disabled & Neutral
   "disable-emp-2": Grey["gray-200"],
   "disable-emp-6": Grey["gray-600"],
-  "black": Grey["gray-1000"],
-  "white": Grey["gray-100"],
-};
-
-export const FontSize = {
-  h1: 30,
-  h2: 24,
-  h3: 20,
-  h4: 18,
-  h5: 16,
-  h6: 14,
-  body: 12,
-  caption: 10,
-};
-
-export const LineHeight = {
-  h1: 36,
-  h2: 30,
-  h3: 26,
-  h4: 24,
-  h5: 22,
-  h6: 20,
-  body: 18,
-  caption: 16,
-};
-
-export const LetterSpacing = {
-  h1: -0.6,
-  h2: -0.4,
-  h3: -0.2,
-  h4: 0,
-  h5: 0,
-  h6: 0,
-  body: 0,
-  caption: 0,
-};
-
-export const FontFamily = 
-  "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
-
-export const FontWeight = {
-  light: 300,
-  normal: 400,
-  medium: 500,
-  semibold: 600,
-  bold: 700,
-};
-
-// Raw Spacing Values
-export const SpaceTokens = {
-  "3xs": 4,
-  "2xs": 8,
-  xs: 12,
-  sm: 16,
-  md: 20,
-  lg: 24,
-  xl: 28,
-  "2xl": 32,
-};
-
-// Raw Border Radius Values
-export const RadiusTokens = {
-  sm: 4,
-  md: 6,
-  lg: 8,
-  xl: 12,
-  xxl: 16,
-  pill: 50,
-  circle: 999,
-};
-
-// Raw Border Widths
-export const BorderWidthTokens = {
-  1: 1,
-  2: 2,
-  3: 3,
-  4: 4,
-  5: 5,
+  dark: Grey["gray-900"],
+  black: Grey["gray-1000"],
+  white: Grey["gray-100"],
 };

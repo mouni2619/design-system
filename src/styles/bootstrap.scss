@@ -5,8 +5,8 @@
 // 2. CUSTOM PROJECT VARIABLES & TOKENS
 // Custom theme colors, spacing maps ($spacers), typography tokens,
 // shadows, and utility loops loaded before Bootstrap defaults.
-@import "@assets/variable";
-@import "@assets/typography";
+@import "@styles/variables";
+@import "@styles/typography";
 
 // 3. BOOTSTRAP SYSTEM MAPS & MIXINS
 // Processes custom variables and merges them into Bootstrap's internal maps.
@@ -28,5 +28,8 @@
 // Loads typography (h1-h6) and utility generators for spacing (m-*, p-*),
 // colors, backgrounds, and display helpers based on custom tokens.
 @import "bootstrap/scss/type";
+// Single helper rather than all of "bootstrap/scss/helpers", which would also
+// pull in colored-links, focus-ring, ratio, position, stacks and vr.
+@import "bootstrap/scss/helpers/text-truncation";
 @import "bootstrap/scss/utilities";
 @import "bootstrap/scss/utilities/api";

@@ -1,11 +1,5 @@
-import path from "path";
-import { fileURLToPath } from "url";
+import { aliases } from "./aliases.js";
 
-const projectRoot = fileURLToPath(new URL("..", import.meta.url));
-
-function resolvePath(dir) {
-  return path.resolve(projectRoot, dir);
-}
 /** @type { import('@storybook/react-vite').StorybookConfig } */
 const config = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -15,11 +9,7 @@ const config = {
     config.resolve = config.resolve || {};
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
-      "@": resolvePath("src"),
-      "@assets": resolvePath("src/assets/themes"),
-      "@components": resolvePath("src/components"),
-      "@design-tokens": resolvePath("src/designTokens.js"),
-      "@tokens": resolvePath("src/tokens.js"),
+      ...aliases,
     };
 
     return config;
