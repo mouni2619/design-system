@@ -16,7 +16,7 @@ export const antdTheme = {
     colorError: ThemeColors.danger,
     colorInfo: ThemeColors.info,
     colorLink: ThemeColors.link,
-    colorTextBase: Grey["gray-800"],
+    colorTextBase: Grey["gray-900"],
     colorBgBase: ThemeColors.white,
     colorBorder: ThemeColors["secondary-emp-5"],
 
@@ -32,9 +32,9 @@ export const antdTheme = {
     lineHeight: LineHeight.body / FontSize.body,
 
     // Border
-    borderRadius: RadiusTokens.xl,
+    borderRadius: RadiusTokens.md,
     borderRadiusSM: RadiusTokens.sm,
-    borderRadiusLG: RadiusTokens.xxl,
+    borderRadiusLG: RadiusTokens.lg,
     lineWidth: BorderWidthTokens[1],
     lineWidthBold: BorderWidthTokens[2],
 
