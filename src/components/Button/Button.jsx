@@ -1,10 +1,7 @@
 import { Button as AntButton, ConfigProvider } from "antd";
-import PropTypes from "prop-types";
 
 import {
-  BUTTON_ICON_POSITIONS,
   BUTTON_OUTLINED_THEMES,
-  BUTTON_SIZES,
   BUTTON_TYPES,
   BUTTON_VARIANTS,
   DEFAULT_BUTTON_ICON_POSITION,
@@ -45,20 +42,5 @@ export function Button({
 
   return button;
 }
-
-Button.propTypes = {
-  /** Which colour the button carries. */
-  type: PropTypes.oneOf(Object.keys(BUTTON_TYPES)),
-  /** How it is filled. Named `variant` because `style` is React's inline-style prop. */
-  variant: PropTypes.oneOf(Object.keys(BUTTON_VARIANTS)),
-  size: PropTypes.oneOf(BUTTON_SIZES),
-  /** The icon node, e.g. `<Trash2 size={12} />`. */
-  icon: PropTypes.node,
-  /** Where the icon sits. `only` drops the label — pass `aria-label` with it. */
-  iconPosition: PropTypes.oneOf(BUTTON_ICON_POSITIONS),
-  disabled: PropTypes.bool,
-  loading: PropTypes.bool,
-  children: PropTypes.node,
-};
 
 export default Button;

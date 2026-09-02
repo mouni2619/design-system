@@ -129,6 +129,14 @@ export const antdTheme = {
 
   components: {
     Button: {
+      // explicitly set in button
+      primaryShadow: "none",
+      defaultShadow: "none",
+      dangerShadow: "none",
+      blueShadowColor: "none",
+      greenShadowColor: "none",
+      orangeShadowColor: "none",
+
       // Outlined + secondary: neutral hover with a visible fill.
       defaultHoverBg: ThemeColors["secondary-emp-3"],
       defaultHoverColor: ThemeColors.dark,
