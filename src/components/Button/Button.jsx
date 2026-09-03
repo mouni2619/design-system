@@ -1,7 +1,8 @@
-import { Button as AntButton, ConfigProvider } from "antd";
+import { Button as AntButton } from "antd";
+
+import "@components/Button/Button.css";
 
 import {
-  BUTTON_OUTLINED_THEMES,
   BUTTON_TYPES,
   BUTTON_VARIANTS,
   DEFAULT_BUTTON_ICON_POSITION,
@@ -21,11 +22,10 @@ export function Button({
 }) {
   const showIcon = Boolean(icon) && iconPosition !== "none";
   const iconOnly = showIcon && iconPosition === "only";
-  const outlinedPalette = variant === "outlined" ? BUTTON_OUTLINED_THEMES[type] : null;
 
-  const button = (
+  return (
     <AntButton
-      color={outlinedPalette ? "default" : BUTTON_TYPES[type]}
+      color={BUTTON_TYPES[type]}
       variant={BUTTON_VARIANTS[variant]}
       size={size}
       icon={showIcon ? icon : undefined}
@@ -35,12 +35,6 @@ export function Button({
       {iconOnly ? null : children}
     </AntButton>
   );
-
-  if (outlinedPalette) {
-    return <ConfigProvider theme={outlinedPalette}>{button}</ConfigProvider>;
-  }
-
-  return button;
 }
 
 export default Button;

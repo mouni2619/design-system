@@ -1,5 +1,3 @@
-import { ThemeColors } from "@tokens/color";
-
 /* -- Button --------------------------------------------------------------- */
 
 export const BUTTON_TYPES = {
@@ -31,28 +29,3 @@ export const DEFAULT_BUTTON_TYPE = "primary";
 export const DEFAULT_BUTTON_VARIANT = "filled-dark";
 export const DEFAULT_BUTTON_SIZE = "medium";
 export const DEFAULT_BUTTON_ICON_POSITION = "none";
-
-function outlinedTheme(base, fill) {
-  return {
-    components: {
-      Button: {
-        defaultBorderColor: base,
-        defaultColor: base,
-        defaultHoverBg: fill,
-        defaultHoverBorderColor: fill,
-        defaultHoverColor: ThemeColors.white,
-        defaultActiveBg: fill,
-        defaultActiveBorderColor: base,
-        defaultActiveColor: ThemeColors.white,
-      },
-    },
-  };
-}
-
-export const BUTTON_OUTLINED_THEMES = {
-  primary: outlinedTheme(ThemeColors.primary, ThemeColors.primary),
-  info: outlinedTheme(ThemeColors.info, ThemeColors.info),
-  success: outlinedTheme(ThemeColors.success, ThemeColors["success-emp-5"]),
-  warning: outlinedTheme(ThemeColors.warning, ThemeColors["warning-emp-5"]),
-  danger: outlinedTheme(ThemeColors.danger, ThemeColors["danger-emp-5"]),
-};

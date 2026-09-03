@@ -1,0 +1,64 @@
+.ant-btn-color-primary {
+  --ds-btn-base: var(--ant-color-primary);
+  --ds-btn-fill: var(--ant-color-primary);
+}
+.ant-btn-color-blue {
+  --ds-btn-base: var(--ant-color-info);
+  --ds-btn-fill: var(--ant-color-info);
+}
+.ant-btn-color-green {
+  --ds-btn-base: var(--ant-color-success);
+  --ds-btn-fill: var(--ant-color-success-hover);
+}
+.ant-btn-color-orange {
+  --ds-btn-base: var(--ant-color-warning);
+  --ds-btn-fill: var(--ant-color-warning-hover);
+}
+.ant-btn-color-dangerous {
+  --ds-btn-base: var(--ant-color-error);
+  --ds-btn-fill: var(--ant-color-error-hover);
+}
+
+.ant-btn-color-default {
+  --ds-btn-base: var(--ant-color-text-secondary);
+}
+
+/**
+ * OUTLINED
+ */
+.ant-btn-variant-outlined:not(.ant-btn-color-default) {
+  --ant-btn-bg-color-hover: var(--ds-btn-fill);
+  --ant-btn-border-color-hover: var(--ds-btn-fill);
+  --ant-btn-text-color-hover: var(--ant-color-text-light-solid);
+
+  --ant-btn-bg-color-active: var(--ds-btn-fill);
+  --ant-btn-border-color-active: var(--ds-btn-base);
+  --ant-btn-text-color-active: var(--ant-color-text-light-solid);
+}
+
+/**
+ * WAVE
+*/
+.ant-btn {
+  /* How far the ring travels past the button's edge. */
+  --ds-btn-wave-spread: 6px;
+}
+
+.ant-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: 0 0 0 var(--ds-btn-wave-spread) var(--ds-btn-base, currentColor);
+  opacity: 0;
+  transition:
+    box-shadow 0.4s cubic-bezier(0.08, 0.82, 0.17, 1),
+    opacity 2s cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+
+.ant-btn:not(:disabled):active::after {
+  box-shadow: 0 0 0 0 var(--ds-btn-base, currentColor);
+  opacity: 0.2;
+  transition: 0s;
+}

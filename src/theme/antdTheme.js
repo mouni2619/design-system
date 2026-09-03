@@ -137,16 +137,37 @@ export const antdTheme = {
       greenShadowColor: "none",
       orangeShadowColor: "none",
 
-      // Outlined + secondary: neutral hover with a visible fill.
-      defaultHoverBg: ThemeColors["secondary-emp-3"],
+      // ---- Secondary -------------------------------------------------
+      colorBgSolid: ThemeColors["secondary-emp-6"],
+      colorBgSolidHover: ThemeColors["secondary-emp-5"],
+      colorBgSolidActive: ThemeColors["secondary-emp-5"],
+      solidTextColor: ThemeColors.dark,
+
+      // `outlined`
+      // for the ghost buttons the antd default backgroundcolor is white when no color is passed, but our requirements need it to be transparent.
+      defaultBg: "transparent",
+      defaultBorderColor: ThemeColors["secondary-emp-6"],
+      defaultColor: ThemeColors.dark,
+      defaultHoverBg: ThemeColors["secondary-emp-5"],
       defaultHoverColor: ThemeColors.dark,
       defaultHoverBorderColor: ThemeColors["secondary-emp-6"],
-      defaultActiveBg: ThemeColors["secondary-emp-3"],
+      defaultActiveBg: ThemeColors["secondary-emp-5"],
       defaultActiveColor: ThemeColors.dark,
-      defaultActiveBorderColor: ThemeColors.secondary,
+      defaultActiveBorderColor: ThemeColors["secondary-emp-6"],
 
-      // Ghost + secondary: same fill on hover.
+      // `filled-subtle` ghost
+      colorFillTertiary: ThemeColors["secondary-emp-2"],
+      colorFillSecondary: ThemeColors["secondary-emp-3"],
+      colorFill: ThemeColors["secondary-emp-3"],
+
+      // `ghost` -> AntD `text`, which reads its own label trio.
       textHoverBg: ThemeColors["secondary-emp-3"],
+      textTextColor: ThemeColors.dark,
+      textTextHoverColor: ThemeColors.dark,
+      textTextActiveColor: ThemeColors.dark,
+
+      // Disabled fill, every variant.
+      colorBgContainerDisabled: ThemeColors["disable-emp-2"],
     },
   },
 };
