@@ -23,6 +23,9 @@ const preview = {
     ),
   ],
   parameters: {
+    docs: {
+      codePanel: true, // Enables the code snippet panel globally
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
