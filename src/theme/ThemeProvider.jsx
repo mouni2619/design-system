@@ -13,7 +13,13 @@ import { antdTheme } from "@theme/antdTheme";
  * @param {Node} children
  */
 export function ThemeProvider({ children = null }) {
-  return <ConfigProvider theme={antdTheme}>{children}</ConfigProvider>;
+  // AntD's Wave is replaced by the ripple in Button.css, which covers the
+  // variants Wave skips. Leaving both on would ripple twice.
+  return (
+    <ConfigProvider theme={antdTheme} wave={{ disabled: true }}>
+      {children}
+    </ConfigProvider>
+  );
 }
 
 export default ThemeProvider;
