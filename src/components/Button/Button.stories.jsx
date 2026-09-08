@@ -34,6 +34,7 @@ export default {
     type: "primary",
     variant: "filled-dark",
     size: "medium",
+    icon: <Trash2 size={DEMO_ICON_SIZE} />,
     iconPosition: "none",
     disabled: false,
     loading: false,
