@@ -1,5 +1,5 @@
 import { ThemeColors, Grey } from "@tokens/color";
-import { FontFamily, FontSize, LineHeight } from "@tokens/typography";
+import { FontFamily, FontSize, FontWeight, LineHeight } from "@tokens/typography";
 import { RadiusTokens, BorderWidthTokens } from "@tokens/border";
 import { ShadowGeometry } from "@tokens/shadow";
 import { SpaceTokens } from "@tokens/space";
@@ -115,6 +115,15 @@ export const antdTheme = {
     sizeUnit: SpaceTokens["3xs"],
     sizeStep: SpaceTokens["3xs"],
 
+    // Control heights. The design sets each one as its own vertical padding
+    // twice over plus the line height it holds — 8 + 18 + 8 for medium — so
+    // they are written that way rather than as bare numbers. AntD has no
+    // per-component height token, so these are global and every control that
+    // sits beside a button (Select, InputNumber) follows them.
+    controlHeightSM: SpaceTokens["3xs"] * 2 + LineHeight.caption,
+    controlHeight: SpaceTokens["2xs"] * 2 + LineHeight.body,
+    controlHeightLG: SpaceTokens.xs * 2 + LineHeight.h6,
+
     // Focus ring
     controlOutlineWidth: BorderWidthTokens[4],
     controlOutline: ThemeColors["primary-emp-1"],
@@ -129,6 +138,26 @@ export const antdTheme = {
 
   components: {
     Button: {
+      // ---- Typography and metrics ------------------------------------
+      // One step of the type scale per size: caption, body, h6. AntD wants
+      // the line height as a ratio, so each is divided by its own size.
+      fontWeight: FontWeight.medium,
+
+      contentFontSizeSM: FontSize.caption,
+      contentFontSize: FontSize.body,
+      contentFontSizeLG: FontSize.h6,
+
+      contentLineHeightSM: LineHeight.caption / FontSize.caption,
+      contentLineHeight: LineHeight.body / FontSize.body,
+      contentLineHeightLG: LineHeight.h6 / FontSize.h6,
+
+      paddingInlineSM: SpaceTokens["2xs"],
+      paddingInline: SpaceTokens.sm,
+      paddingInlineLG: SpaceTokens.lg,
+
+      // Gap between the icon and the label. AntD defaults it to `marginXS`.
+      iconGap: SpaceTokens["3xs"],
+
       // explicitly set in button
       primaryShadow: "none",
       defaultShadow: "none",
@@ -168,6 +197,24 @@ export const antdTheme = {
 
       // Disabled fill, every variant.
       colorBgContainerDisabled: ThemeColors["disable-emp-2"],
+    },
+
+    Radio: {
+      // Unselected buttons in a group sit on whatever is behind them, matching
+      // the `defaultBg` the Button block sets for the same reason. AntD would
+      // otherwise paint them `colorBgContainer`, which only looks the same
+      // over white.
+      buttonBg: "transparent",
+    },
+
+    Progress: {
+      // The design rounds the bar's ends to radius-sm. AntD's own default is
+      // 100, i.e. a pill.
+      lineBorderRadius: RadiusTokens.sm,
+
+      // The unfilled rail is a flat grey. AntD's default is a translucent
+      // `rgba(0, 0, 0, 0.06)`, which only lands on this colour over white.
+      remainingColor: ThemeColors["secondary-emp-4"],
     },
   },
 };
