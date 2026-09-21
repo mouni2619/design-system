@@ -1,0 +1,30 @@
+/* The design puts the info glyph, the title and the close glyph on one line,
+   centred on each other, with the description on its own line below. AntD
+   hangs the close button from the card's top padding in a box of its own,
+   which drops the glyph below the title, and clears the button's border and
+   its background but not the padding the browser gives it — which squeezes a
+   16px cross down to 12 wide. Centring the button on the title's line, and on
+   the padding the card already keeps, puts all three back in a row while
+   leaving the button big enough to hit. */
+.toast .ant-notification-notice-close {
+  top: 9px;
+  inset-inline-end: 8px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}
+
+/* Only the line the cross sits on clears it: the title's when there is one,
+   the description's when the toast is a single line. AntD reserves its own
+   horizontal padding, which this theme has already pulled down to 12. The
+   design runs a description under a title the full width of the card. */
+.toast.ant-notification-notice-closable .ant-notification-notice-title,
+.toast.ant-notification-notice-closable .ant-notification-notice-description {
+  padding-inline-end: 32px;
+}
+
+.toast.ant-notification-notice-closable
+  .ant-notification-notice-title
+  + .ant-notification-notice-description {
+  padding-inline-end: 0;
+}

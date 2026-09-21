@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Spacing } from "@docs/data/spacing";
 
 import "@docs/blocks/blocks.css";

@@ -1,10 +1,40 @@
+/* The design's radio is a white circle with a 1px ring and, once chosen, a dot
+   half its width. AntD draws one size only, so the other two ride on the
+   circle's own variables. */
+.radio-small .ant-radio {
+  --ant-radio-radio-size: 16;
+  --ant-radio-dot-size: 8;
+}
+
+.radio-medium .ant-radio {
+  --ant-radio-radio-size: 20;
+  --ant-radio-dot-size: 10;
+}
+
+.radio-large .ant-radio {
+  --ant-radio-radio-size: 24;
+  --ant-radio-dot-size: 12;
+}
+
+/* AntD greys the circle once it is disabled, and rings a focused one in 3px of
+   primary-emp-3 held a pixel clear of it. The sheet keeps the circle white
+   whatever its state, and lays a 2px primary-emp-1 halo straight against the
+   ring. None of the three is a Radio token of its own — they are the shared
+   ones a Radio.Group's buttons read too — so they are set here rather than in
+   the theme, where they would take the GroupedButtons with them. */
+.radio .ant-radio {
+  --ant-color-bg-container-disabled: var(--bs-white);
+  --ant-line-width-focus: 2px;
+  --ant-color-primary-border: var(--bs-primary-emp-1);
+
+  outline-offset: 0;
+}
+
 /* The sheet's hover only turns the ring blue — the circle stays white at every
    state. AntD floods a chosen circle with the hover primary and drops its ring
    to transparent, which is the look that goes with the white dot it knocks out
-   by default. Neither is reachable from a token: the ring's colour is a literal
-   in AntD's own rule, and a hover cannot be written as a style on the element.
-   An unchosen circle already takes the ring AntD gives it. */
+   by default. An unchosen circle already takes the ring AntD gives it. */
 .radio.ant-radio-wrapper:hover .ant-radio-checked:not(.ant-radio-disabled) {
-  background-color: var(--ant-color-bg-container);
-  border-color: var(--ant-color-primary);
+  background-color: var(--bs-white);
+  border-color: var(--bs-primary);
 }

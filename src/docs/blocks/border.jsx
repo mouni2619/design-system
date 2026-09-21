@@ -1,5 +1,3 @@
-import React from "react";
-
 import { BorderRadius, BorderStrength } from "@docs/data/border";
 import { CopyBadge } from "@docs/blocks/primitives";
 

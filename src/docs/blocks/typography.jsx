@@ -1,5 +1,3 @@
-import React from "react";
-
 import { TypeScale, FontWeights, TextColors } from "@docs/data/typography";
 import { CopyBadge, TABLE_CELL } from "@docs/blocks/primitives";
 

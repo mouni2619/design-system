@@ -1,5 +1,3 @@
-import React from "react";
-
 import { ElevationShadows, FocusRingShadows } from "@docs/data/shadow";
 
 import "@docs/blocks/blocks.css";

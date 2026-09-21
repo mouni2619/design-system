@@ -1,7 +1,16 @@
 import { notification } from "antd";
 import { Info, X } from "lucide-react";
 
-import { DEFAULT_TOAST_DESCRIPTION, DEFAULT_TOAST_STATUS, DEFAULT_TOAST_TITLE, TOAST_CLOSE_CLEARANCE, TOAST_CLOSE_ICON_SIZE, TOAST_CLOSE_STYLE, TOAST_INFO_ICON_SIZE, TOAST_STATUSES } from "@components/Toast/constants";
+import "./Toast.css";
+
+import {
+  DEFAULT_TOAST_DESCRIPTION,
+  DEFAULT_TOAST_STATUS,
+  DEFAULT_TOAST_TITLE,
+  TOAST_CLOSE_ICON_SIZE,
+  TOAST_INFO_ICON_SIZE,
+  TOAST_STATUSES,
+} from "@components/Toast/constants";
 
 /**
  * A toast, opened by calling the function this hook hands back. AntD owns the
@@ -61,17 +70,9 @@ export function useToast() {
 
       role: "alert",
       props: { "aria-live": "polite" },
-      className: `border border-${tone} bg-${tone} shadow-${tone} text-white`,
+      className: `toast border border-${tone} bg-${tone} shadow-${tone} text-white`,
       classNames: { title: "body fw-semibold", description: "body" },
 
-      // Only the line the cross sits on clears it: the title's when there is
-      // one, the description's when the toast is a single line. The design
-      // runs a description under a title the full width of the card.
-      styles: {
-        close: TOAST_CLOSE_STYLE,
-        title: closable ? { paddingInlineEnd: TOAST_CLOSE_CLEARANCE } : undefined,
-        description: closable && !title ? { paddingInlineEnd: TOAST_CLOSE_CLEARANCE } : undefined,
-      },
       ...rest,
     });
   }

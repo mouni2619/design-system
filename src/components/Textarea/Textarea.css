@@ -1,0 +1,10 @@
+/* The sheet draws one textarea, 100 tall and padded 8 on every side — there is
+   no small or large the way there is for the fields that sit on one line. AntD
+   pads a field from the height it has to hit on one line, which works out a
+   pixel short here, and sizes it by rows rather than a height. This box is a
+   fixed height, so nothing moves when both are set straight. */
+.textarea.ant-input {
+  height: 100px;
+  padding: var(--bs-spacer-2, 8px);
+  resize: none;
+}

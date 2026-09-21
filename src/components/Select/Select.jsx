@@ -2,7 +2,9 @@ import { Select as AntSelect } from "antd";
 import { ChevronDown, Search as SearchIcon } from "lucide-react";
 import { useId } from "react";
 
-import { DEFAULT_SELECT_SIZE, SELECT_ICON_SIZE, SELECT_POPUP_STYLES } from "@components/Select/constants";
+import "./Select.css";
+
+import { DEFAULT_SELECT_SIZE, SELECT_ICON_SIZE } from "@components/Select/constants";
 
 /**
  * A select: a field that opens a list of options.
@@ -45,7 +47,7 @@ export function Select({
       // select to its longest option instead.
       className={`w-100 ${className}`}
       suffixIcon={<Glyph size={SELECT_ICON_SIZE} className="text-secondary-emp-6" />}
-      styles={{ popup: SELECT_POPUP_STYLES }}
+      classNames={{ popup: { root: "select-popup" } }}
       {...rest}
     />
   );

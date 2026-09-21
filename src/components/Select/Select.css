@@ -1,0 +1,7 @@
+/* The sheet sets the option rows 4 apart inside the panel's 8 of inset, so
+   each row reads as its own block. AntD stacks them flush and has no token for
+   the gap, but the list it lays them out in is already a column, so a gap
+   there puts the space between the rows and nowhere else. */
+.select-popup .ant-select-dropdown-list-holder-inner {
+  gap: 4px;
+}

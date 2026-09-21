@@ -1,5 +1,3 @@
-import React from "react";
-
 import { CopyBadge, TABLE_CELL } from "@docs/blocks/primitives";
 
 import "@docs/blocks/blocks.css";

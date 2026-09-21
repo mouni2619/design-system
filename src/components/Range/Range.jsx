@@ -3,7 +3,7 @@ import { useId } from "react";
 
 import "./Range.css";
 
-import { DEFAULT_RANGE_SEPARATOR, DEFAULT_RANGE_SIZE, RANGE_HEIGHTS, RANGE_VARS } from "@components/Range/constants";
+import { DEFAULT_RANGE_SEPARATOR, DEFAULT_RANGE_SIZE } from "@components/Range/constants";
 
 /**
  * A range: two fields in one box with a cell between them.
@@ -65,11 +65,7 @@ export function Range({
 
   const box = (
     <div
-      className={`range ${statusClass} ${disabledClass} ${className}`}
-      style={{
-        ...RANGE_VARS,
-        "--range-height": `${RANGE_HEIGHTS[size] || RANGE_HEIGHTS[DEFAULT_RANGE_SIZE]}px`,
-      }}
+      className={`range range-${size} ${statusClass} ${disabledClass} ${className}`}
       {...rest}
     >
       <Input
