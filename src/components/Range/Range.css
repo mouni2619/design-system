@@ -1,0 +1,95 @@
+/* The sheet's range is one box holding two fields and a cell between them. The
+   box carries the border, the corners and the states, so the fields inside it
+   are borderless and the whole thing hovers and focuses as one. AntD has no
+   control of this shape — `Space.Compact` only butts two bordered fields
+   together — and hover and focus cannot be written as a style on the element,
+   so they live here. Every value is still the theme's, handed down from the
+   component: AntD's own variables sit on AntD's elements and would only reach
+   this box when it happened to be inside one. */
+.range {
+  display: flex;
+  align-items: stretch;
+  height: var(--range-height);
+  overflow: hidden;
+  background-color: var(--range-bg);
+  border: var(--range-border-width) solid var(--range-border-color);
+  border-radius: var(--range-radius);
+  transition: border-color 0.2s;
+}
+
+.range:hover,
+.range:focus-within {
+  border-color: var(--range-border-color-active);
+}
+
+/* The sheet lays a halo straight against the border once the box has the
+   focus, the same one every other field takes. */
+.range:focus-within {
+  box-shadow: 0 0 0 var(--range-focus-ring) var(--range-tint-active);
+}
+
+/* The fields fill the box and leave the border, the corners and the states
+   to it, which is what makes the two read as one control. The sheet centres
+   each value in its half rather than setting it against the field's own
+   padding, so the pair reads as one line either side of the dash. */
+.range > .ant-input {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 100%;
+  text-align: center;
+}
+
+/* The cell between the two fields: a divider on either side that follows the
+   box's own border, and a fill that lifts to the primary tint with it. */
+.range-separator {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--range-separator-width);
+  color: var(--range-separator-color);
+  background-color: var(--range-separator-bg);
+  border-inline: var(--range-border-width) solid var(--range-border-color);
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+}
+
+.range:hover > .range-separator,
+.range:focus-within > .range-separator {
+  background-color: var(--range-tint-active);
+  border-inline-color: var(--range-border-color-active);
+}
+
+/* Error: the box, both dividers and the cell all take the danger ramp. */
+.range-status-error,
+.range-status-error:hover,
+.range-status-error:focus-within {
+  border-color: var(--range-border-color-error);
+}
+
+.range-status-error:focus-within {
+  box-shadow: 0 0 0 var(--range-focus-ring) var(--range-tint-error);
+}
+
+.range-status-error > .range-separator,
+.range-status-error:hover > .range-separator,
+.range-status-error:focus-within > .range-separator {
+  background-color: var(--range-tint-error);
+  border-inline-color: var(--range-border-color-error);
+}
+
+/* Disabled: one flat fill across the box, and no state of its own left. */
+.range-disabled,
+.range-disabled:hover,
+.range-disabled:focus-within {
+  background-color: var(--range-bg-disabled);
+  border-color: var(--range-border-color);
+  box-shadow: none;
+}
+
+.range-disabled > .range-separator,
+.range-disabled:hover > .range-separator {
+  background-color: transparent;
+  border-inline-color: var(--range-border-color);
+}

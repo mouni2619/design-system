@@ -1,0 +1,28 @@
+/* The design's large size: a 24px circle. AntD's Steps comes in small and
+   medium only, and sizes the circle, and every rail offset around it, from
+   this one variable. */
+.stepper-large {
+  --ant-cmp-steps-icon-size: var(--ant-size-lg);
+}
+
+/* Vertical steps: the heading is as tall as the circle, with the title centred
+   on it; steps sit 24px apart, 34px when they carry a subtitle, and the rail
+   is 4px clear of each circle. AntD instead reserves a line of h6 for the
+   heading and gives every step a minimum height of 1.5 control heights, 12px
+   of padding and 6px of rail clearance. */
+.stepper.ant-steps-vertical {
+  --ant-cmp-steps-title-horizontal-title-height: 0px;
+  --ant-cmp-steps-vertical-rail-margin: var(--ant-margin-xxs);
+}
+
+.stepper.ant-steps-vertical > .ant-steps-item {
+  min-height: 0;
+}
+
+.stepper.ant-steps-vertical > .ant-steps-item:not(:last-child) {
+  padding-bottom: var(--ant-margin-lg);
+}
+
+.stepper.ant-steps-vertical > .ant-steps-item:not(:last-child) .ant-steps-item-content {
+  margin-bottom: 10px;
+}

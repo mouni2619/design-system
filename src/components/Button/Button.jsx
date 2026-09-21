@@ -2,14 +2,7 @@ import { Button as AntButton } from "antd";
 
 import "@components/Button/Button.css";
 
-import {
-  BUTTON_TYPES,
-  BUTTON_VARIANTS,
-  DEFAULT_BUTTON_ICON_POSITION,
-  DEFAULT_BUTTON_SIZE,
-  DEFAULT_BUTTON_TYPE,
-  DEFAULT_BUTTON_VARIANT,
-} from "@components/constants";
+import { BUTTON_TYPES, BUTTON_VARIANTS, DEFAULT_BUTTON_ICON_POSITION, DEFAULT_BUTTON_SIZE, DEFAULT_BUTTON_TYPE, DEFAULT_BUTTON_VARIANT } from "@components/Button/constants";
 
 export function Button({
   type = DEFAULT_BUTTON_TYPE,

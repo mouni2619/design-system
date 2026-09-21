@@ -1,0 +1,18 @@
+/* The simple variant's arrows: icon-default at rest, icon-primary on hover
+   and while pressed, with nothing behind them. They are ghost Buttons, which
+   would hover to a grey fill with dark text, and no Button token sets this
+   pair without changing every ghost button. */
+.pagination-arrow.ant-btn:not(:disabled) {
+  color: var(--ant-color-text-base);
+}
+
+.pagination-arrow.ant-btn:not(:disabled):not(.ant-btn-disabled):hover,
+.pagination-arrow.ant-btn:not(:disabled):not(.ant-btn-disabled):active {
+  color: var(--ant-color-primary);
+  background-color: transparent;
+}
+
+/* No click ripple either: Button.css draws one on every Button's ::after. */
+.pagination-arrow.ant-btn::after {
+  content: none;
+}

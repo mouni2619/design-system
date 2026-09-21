@@ -1,13 +1,19 @@
 import { Trash2 } from "lucide-react";
 
 import { Button } from "@components/Button/Button";
-import { BUTTON_ICON_POSITIONS, BUTTON_SIZES, BUTTON_TYPES, BUTTON_VARIANTS } from "@components/constants";
+import { BUTTON_TYPES, BUTTON_VARIANTS } from "@components/Button/constants";
 
 const CAPTION_CLASS = "caption text-secondary";
 const ROW_CLASS = "d-flex align-items-center gap-3 flex-wrap";
 
 const TYPES = Object.keys(BUTTON_TYPES);
 const VARIANTS = Object.keys(BUTTON_VARIANTS);
+
+// antd's own size names, which Button passes straight through.
+const BUTTON_SIZES = ["small", "medium", "large"];
+
+// Where the icon sits. `none` hides it, `only` drops the label.
+const BUTTON_ICON_POSITIONS = ["none", "start", "end", "only"];
 
 // Icons inside a button sit at the label's size.
 const DEMO_ICON_SIZE = 12;
