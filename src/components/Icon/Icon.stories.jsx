@@ -3,7 +3,7 @@ import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 
 import { Icon } from "@components/Icon/Icon";
-import { ICON_SIZES } from "@components/constants";
+import { ICON_SIZES } from "@components/Icon/constants";
 import { MediumPurple, ThemeColors } from "@tokens/color";
 
 const CAPTION_CLASS = "caption text-secondary";

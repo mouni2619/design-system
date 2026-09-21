@@ -1,0 +1,10 @@
+/* The sheet's hover only turns the ring blue — the circle stays white at every
+   state. AntD floods a chosen circle with the hover primary and drops its ring
+   to transparent, which is the look that goes with the white dot it knocks out
+   by default. Neither is reachable from a token: the ring's colour is a literal
+   in AntD's own rule, and a hover cannot be written as a style on the element.
+   An unchosen circle already takes the ring AntD gives it. */
+.radio.ant-radio-wrapper:hover .ant-radio-checked:not(.ant-radio-disabled) {
+  background-color: var(--ant-color-bg-container);
+  border-color: var(--ant-color-primary);
+}

@@ -1,0 +1,15 @@
+/* The design's handle is a solid dot. AntD draws it as a ring round a white
+   centre, and the token for that centre also colours the marks, so the
+   centre takes the ring's colour here. */
+.slider.ant-slider .ant-slider-handle::after {
+  background-color: var(--ant-slider-handle-color);
+}
+
+.slider.ant-slider.ant-slider-disabled .ant-slider-handle::after {
+  background-color: var(--ant-slider-handle-color-disabled);
+}
+
+/* With no partitions, the labels sit at the two ends with no mark under them. */
+.slider-no-marks .ant-slider-dot {
+  display: none;
+}

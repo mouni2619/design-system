@@ -2,7 +2,7 @@ import { Flex } from "antd";
 import { useState } from "react";
 
 import { Pagination } from "@components/Pagination/Pagination";
-import { DEFAULT_PAGE_SIZE_OPTIONS } from "@components/constants";
+import { DEFAULT_PAGE_SIZE_OPTIONS } from "@components/Pagination/constants";
 
 const CAPTION_CLASS = "caption text-secondary";
 
@@ -50,9 +50,12 @@ export default {
       control: { type: "number", min: 0 },
       description: "Total number of results — not pages.",
     },
+    defaultCurrent: { control: { type: "number", min: 1 } },
+    defaultPageSize: { control: { type: "number", min: 1 } },
     pageSizeOptions: { control: "object" },
-    showSizeChanger: { description: "Ignored by the `simple` variant." },
-    showQuickJumper: { description: "Ignored by the `simple` variant." },
+    showSizeChanger: { control: "boolean", description: "Ignored by the `simple` variant." },
+    showQuickJumper: { control: "boolean", description: "Ignored by the `simple` variant." },
+    disabled: { control: "boolean" },
     current: {
       control: false,
       description: "Pass with `onChange` to control the component. Omit to let it track its own page.",

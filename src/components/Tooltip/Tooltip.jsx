@@ -1,6 +1,6 @@
 import { Tooltip as AntTooltip } from "antd";
 
-import { DEFAULT_TOOLTIP_ICON_POSITION, TOOLTIP_ICON_SIZE } from "@components/constants";
+import { DEFAULT_TOOLTIP_ICON_POSITION, TOOLTIP_ICON_SIZE } from "@components/Tooltip/constants";
 
 export function Tooltip({
   children = null,

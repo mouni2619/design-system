@@ -2,17 +2,10 @@ import { InputNumber, Select } from "antd";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 
+import "@components/Pagination/Pagination.css";
+
 import { Button } from "@components/Button/Button";
-import {
-  ARROW_ICON_SIZE,
-  DEFAULT_PAGE_SIZE,
-  DEFAULT_PAGE_SIZE_OPTIONS,
-  DEFAULT_PAGINATION_SIZE,
-  DEFAULT_PAGINATION_VARIANT,
-  ELLIPSIS,
-  ELLIPSIS_JUMP,
-  SIBLING_COUNT,
-} from "@components/constants";
+import { ARROW_ICON_SIZE, DEFAULT_PAGE_SIZE, DEFAULT_PAGE_SIZE_OPTIONS, DEFAULT_PAGINATION_SIZE, DEFAULT_PAGINATION_VARIANT, ELLIPSIS, ELLIPSIS_JUMP, SIBLING_COUNT } from "@components/Pagination/constants";
 
 /** `[start, start + 1, …, end]` */
 function pageRange(start, end) {
@@ -63,6 +56,7 @@ function Cell({
   disabled = false,
   label = "",
   divider = false,
+  className = "",
   onClick = null,
 }) {
   return (
@@ -71,7 +65,7 @@ function Cell({
         type={active ? "primary" : "secondary"}
         variant={active ? "filled-dark" : "ghost"}
         size={size}
-        className="rounded-0"
+        className={`rounded-0 ${className}`}
         disabled={disabled}
         aria-label={label || undefined}
         aria-current={active ? "page" : undefined}
@@ -183,10 +177,16 @@ export function Pagination({
         <span>
           {firstResult} - {lastResult} of {total} results
         </span>
-        <Cell size={size} disabled={onFirstPage} label="Previous page" onClick={handlePrev}>
+        <Cell
+          size={size}
+          disabled={onFirstPage}
+          label="Previous page"
+          className="pagination-arrow"
+          onClick={handlePrev}
+        >
           {prevContent}
         </Cell>
-        <Cell size={size} disabled={onLastPage} label="Next page" onClick={handleNext}>
+        <Cell size={size} disabled={onLastPage} label="Next page" className="pagination-arrow" onClick={handleNext}>
           {nextContent}
         </Cell>
       </>

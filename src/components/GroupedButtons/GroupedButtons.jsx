@@ -1,6 +1,6 @@
 import { Radio } from "antd";
 
-import { GROUPED_BUTTONS_ICON_SIZE } from "@components/constants";
+import { GROUPED_BUTTONS_ICON_SIZE } from "@components/GroupedButtons/constants";
 
 /**
  * antd's `options` take a plain label, so an icon has to be composed into the
@@ -18,25 +18,6 @@ function optionLabel(label, IconComponent) {
       {label}
     </span>
   );
-}
-
-/**
- * Only the two ends round, and a lone button rounds on both. antd caps the
- * group with the global `borderRadius` — 6px, where the design draws a tighter
- * corner — and Radio has no radius token of its own, so the outer corners are
- * re-rounded here. The inner cells are already square and need nothing.
- * Bootstrap emits the directional utilities after `.rounded-*` and both carry
- * `!important`, so they outrank antd's first/last-child rule.
- */
-function cornerClass(index, lastIndex) {
-  const corners = [];
-  if (index === 0) {
-    corners.push("rounded-start-1");
-  }
-  if (index === lastIndex) {
-    corners.push("rounded-end-1");
-  }
-  return corners;
 }
 
 /**
@@ -61,9 +42,16 @@ export function GroupedButtons({ options = [], icon: IconComponent = null, ...re
   const radioOptions = options.map(function (option, index) {
     const { label = "", className = "", ...optionRest } = option;
 
+    // Only the two ends round, and a lone button rounds on both. antd caps the
+    // group with the global 6px `borderRadius`, where the design draws a
+    // tighter corner, and Radio has no radius token of its own. Bootstrap's
+    // directional utilities are `!important`, so they win over antd's rule.
+    const startClass = index === 0 ? "rounded-start-1" : "";
+    const endClass = index === lastIndex ? "rounded-end-1" : "";
+
     return {
       ...optionRest,
-      className: [...cornerClass(index, lastIndex), className].filter(Boolean).join(" "),
+      className: `${startClass} ${endClass} ${className}`,
       label: optionLabel(label, IconComponent),
     };
   });

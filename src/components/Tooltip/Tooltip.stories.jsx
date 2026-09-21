@@ -2,7 +2,7 @@ import { Flex } from "antd";
 import { Star } from "lucide-react";
 
 import { Tooltip } from "@components/Tooltip/Tooltip";
-import { DEFAULT_TOOLTIP_ICON_POSITION } from "@components/constants";
+import { DEFAULT_TOOLTIP_ICON_POSITION } from "@components/Tooltip/constants";
 
 // The four placements the design specifies. antd accepts twelve and already
 // defaults to "top", so this list is only here to drive the grid and the control.
@@ -29,6 +29,8 @@ const CONTENT_STATES = [
   { label: "icon at end", extra: { icon: Star, iconPosition: "end" } },
   { label: "with link", extra: {}, linked: true },
 ];
+
+const LINKED_STATE = CONTENT_STATES[CONTENT_STATES.length - 1];
 
 // The link is ordinary markup inside the title, not a prop of its own.
 function stateProps(state, placement) {
@@ -143,17 +145,7 @@ export const WithLink = {
   render: function () {
     return (
       <Flex justify="center" className={GRID_CLASS}>
-        <Tooltip
-          open
-          title={
-            <>
-              Tooltip on{" "}
-              <a className="text-decoration-none" href="#">
-                top
-              </a>
-            </>
-          }
-        >
+        <Tooltip open {...stateProps(LINKED_STATE, "top")}>
           <Target label="Hover me" />
         </Tooltip>
       </Flex>

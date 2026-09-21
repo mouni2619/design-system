@@ -1,14 +1,6 @@
 import { Progress as AntProgress } from "antd";
 
-import {
-  DEFAULT_PROGRESS_HEIGHT,
-  DEFAULT_PROGRESS_PERCENT,
-  DEFAULT_PROGRESS_STATUS,
-  PROGRESS_PERCENT_POSITION,
-  PROGRESS_STATUSES,
-  STRIPE_ANGLE,
-  STRIPE_WIDTH,
-} from "@components/constants";
+import { DEFAULT_PROGRESS_HEIGHT, DEFAULT_PROGRESS_PERCENT, DEFAULT_PROGRESS_STATUS, PROGRESS_PERCENT_POSITION, PROGRESS_STATUSES, STRIPE_ANGLE, STRIPE_WIDTH } from "@components/Progress/constants";
 
 // The design writes the percent with a space before the sign.
 function formatPercent(percent) {

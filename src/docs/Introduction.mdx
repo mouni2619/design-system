@@ -211,8 +211,10 @@ The radius slots sit on the same rungs as the utilities: `borderRadius: 6` is
 the matching rung to the other, or the two render differently for the same
 intent.
 
-No `algorithm` and no per-component `components` overrides are configured yet.
-See the `// TODO: Update the AntD Config` marker in that file.
+No `algorithm` is configured. The `components` block holds one entry per
+component whose look the design pins beyond the global tokens — Button, Radio,
+Progress, Slider, Steps, Upload and Typography. A component-level entry may also
+restate a *global* token, which AntD then scopes to that component alone.
 
 ## Why both Bootstrap and Ant Design
 
@@ -298,7 +300,8 @@ The aliases are defined in `.storybook/aliases.js` and mirrored in
 
 ## Adding a component
 
-Copy `src/components/Button/`. Each component is a folder with `Name.jsx`,
-`Name.stories.jsx` and an `index.js`. Components that wrap Ant Design sit
-alongside ones written from scratch — the import path should not reveal which
-is which, so the implementation stays swappable.
+Copy `src/components/Button/`. Each component is a folder with `Name.jsx` and
+`Name.stories.jsx`, plus a `Name.css` only where no token or utility class can
+do the job. Components that wrap Ant Design sit alongside ones written from
+scratch — the import path should not reveal which is which, so the
+implementation stays swappable.

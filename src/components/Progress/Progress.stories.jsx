@@ -1,7 +1,7 @@
 import { Flex } from "antd";
 
 import { Progress } from "@components/Progress/Progress";
-import { DEFAULT_PROGRESS_HEIGHT, PROGRESS_STATUSES } from "@components/constants";
+import { DEFAULT_PROGRESS_HEIGHT, PROGRESS_STATUSES } from "@components/Progress/constants";
 
 const CAPTION_CLASS = "caption text-secondary";
 

@@ -1,6 +1,6 @@
 import { Spin } from "antd";
 
-import { DEFAULT_ICON_SIZE, DEFAULT_SPIN_SIZE, ICON_SIZES, ICON_SPIN_SIZES } from "@components/constants";
+import { DEFAULT_ICON_SIZE, DEFAULT_SPIN_SIZE, ICON_SIZES, ICON_SPIN_SIZES } from "@components/Icon/constants";
 import { Tooltip } from "@components/Tooltip/Tooltip";
 
 export function Icon({
@@ -22,14 +22,14 @@ export function Icon({
     <IconComponent {...rest} size={ICON_SIZES[size] || size} />
   );
 
-  const dimmed = disabled ? " opacity-50" : "";
+  const dimmed = disabled ? "opacity-50" : "";
   let content;
 
   if (onClick) {
     content = (
       <button
         type="button"
-        className={`bg-transparent p-0 border-0 text-reset d-inline-flex align-items-center justify-content-center${dimmed}`}
+        className={`bg-transparent p-0 border-0 text-reset d-inline-flex align-items-center justify-content-center ${dimmed}`}
         disabled={disabled || loading}
         aria-busy={loading || undefined}
         aria-label={title || undefined}
@@ -41,7 +41,7 @@ export function Icon({
   } else {
     content = (
       <span
-        className={`d-inline-flex align-items-center justify-content-center${dimmed}`}
+        className={`d-inline-flex align-items-center justify-content-center ${dimmed}`}
         role={title ? "img" : undefined}
         aria-label={title || undefined}
         aria-hidden={title ? undefined : true}
