@@ -1,0 +1,64 @@
+.ds-avatar.ant-avatar {
+  color: var(--ds-avatar-color);
+  background-color: var(--ds-avatar-background);
+  border-color: var(--ant-color-primary-border);
+}
+
+.ds-avatar.ant-avatar .ant-avatar-string {
+  font-size: var(--ds-avatar-font-size);
+  line-height: 1;
+}
+
+.ds-avatar--primary-filled {
+  --ds-avatar-color: var(--ant-color-text-light-solid);
+  --ds-avatar-background: var(--ant-color-primary);
+}
+
+.ds-avatar--primary-subtle {
+  --ds-avatar-color: var(--ant-color-primary);
+  --ds-avatar-background: var(--ant-color-primary-bg);
+}
+
+.ds-avatar--xs,
+.ds-avatar-status--xs {
+  --ds-avatar-font-size: 10px;
+  --ds-avatar-status-size: 4px;
+}
+
+.ds-avatar--sm,
+.ds-avatar-status--sm {
+  --ds-avatar-font-size: 12px;
+  --ds-avatar-status-size: 6px;
+}
+
+.ds-avatar--md,
+.ds-avatar-status--md {
+  --ds-avatar-font-size: 14px;
+  --ds-avatar-status-size: 6px;
+}
+
+.ds-avatar--lg,
+.ds-avatar-status--lg {
+  --ds-avatar-font-size: 16px;
+  --ds-avatar-status-size: 8px;
+}
+
+.ds-avatar--xl,
+.ds-avatar-status--xl {
+  --ds-avatar-font-size: 20px;
+  --ds-avatar-status-size: 8px;
+}
+
+.ds-avatar--2xl,
+.ds-avatar-status--2xl {
+  --ds-avatar-font-size: 24px;
+  --ds-avatar-status-size: 8px;
+}
+
+.ds-avatar-status__indicator {
+  // Pull the indicator in from the square wrapper's corner so its center sits
+  // on the circular avatar edge instead of appearing detached.
+  inset-inline-end: 20%;
+  width: var(--ds-avatar-status-size);
+  height: var(--ds-avatar-status-size);
+}

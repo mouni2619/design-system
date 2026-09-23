@@ -1,4 +1,5 @@
 import { ThemeColors } from "@tokens/color";
+import { RadiusTokens } from "@tokens/border";
 
 /* -- Button --------------------------------------------------------------- */
 
@@ -55,4 +56,18 @@ export const BUTTON_OUTLINED_THEMES = {
   success: outlinedTheme(ThemeColors.success, ThemeColors["success-emp-5"]),
   warning: outlinedTheme(ThemeColors.warning, ThemeColors["warning-emp-5"]),
   danger: outlinedTheme(ThemeColors.danger, ThemeColors["danger-emp-5"]),
+};
+
+
+
+
+// /* -- Link Constants -- */
+export const LINK_SIZES = ["small", "medium", "large"];
+
+export const DEFAULT_LINK_SIZE = "medium";
+
+export const LINK_SIZE_CLASSES = {
+  small: "caption mb-0 fw-medium",
+  medium: "body mb-0 fw-medium",
+  large: "h6 mb-0 fw-medium",
 };

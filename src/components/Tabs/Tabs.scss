@@ -1,0 +1,14 @@
+.design-system-tabs {
+  .ant-tabs-tab-active .ant-tabs-tab-btn {
+    font-weight: 500;
+  }
+
+  .ant-tabs-tab-icon:not(:last-child) {
+    margin-inline-end: 8px;
+  }
+
+  &--boxed > .ant-tabs-nav .ant-tabs-tab:not(.ant-tabs-tab-active) {
+    border-color: transparent;
+    border-bottom-color: var(--ant-color-border);
+  }
+}

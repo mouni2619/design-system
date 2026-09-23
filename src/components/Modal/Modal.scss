@@ -1,0 +1,30 @@
+.design-system-modal {
+  .ant-modal-container {
+    border: 1px solid var(--ant-color-border);
+  }
+
+  .ant-modal-header {
+    min-height: 65px;
+  }
+
+  .ant-modal-body {
+    min-height: 50px;
+  }
+
+  .ant-modal-footer {
+    min-height: 65px;
+
+    .ant-btn {
+      min-width: 62px;
+      height: 30px;
+      padding-inline: 12px;
+    }
+  }
+
+  .ant-modal-close {
+    top: 18px;
+    inset-inline-end: 18px;
+    width: 28px;
+    height: 28px;
+  }
+}

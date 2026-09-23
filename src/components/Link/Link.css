@@ -1,0 +1,7 @@
+CSS
+/* The design paints a focused link in the link colour and a hovered one a step
+   lighter. AntD reads one token for both, so a focused link that is not under
+   the pointer takes the link colour back. A disabled link keeps its grey. */
+.link.ant-typography:focus:not(:hover):not(.ant-typography-disabled) {
+  color: var(--ant-color-link);
+}

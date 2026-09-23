@@ -1,0 +1,77 @@
+.ds-badge {
+  --ds-badge-color: var(--ant-color-text-light-solid);
+}
+
+.ds-badge.ant-badge {
+  .ant-badge-count,
+  .ant-badge-dot {
+    color: var(--ds-badge-color);
+    background-color: var(--ds-badge-background);
+    box-shadow: none;
+  }
+
+  .ant-badge-count {
+    min-width: var(--ds-badge-count-size);
+    height: var(--ds-badge-count-size);
+    padding-inline: var(--ds-badge-count-padding);
+    font-size: var(--ds-badge-font-size);
+    line-height: var(--ds-badge-count-size);
+  }
+
+  .ant-badge-dot {
+    width: var(--ds-badge-dot-size);
+    min-width: var(--ds-badge-dot-size);
+    height: var(--ds-badge-dot-size);
+  }
+}
+
+.ds-badge--small {
+  --ds-badge-dot-size: 4px;
+  --ds-badge-count-size: 16px;
+  --ds-badge-count-padding: 4px;
+  --ds-badge-font-size: 10px;
+}
+
+.ds-badge--medium {
+  --ds-badge-dot-size: 6px;
+  --ds-badge-count-size: 20px;
+  --ds-badge-count-padding: 6px;
+  --ds-badge-font-size: 12px;
+}
+
+.ds-badge--large {
+  --ds-badge-dot-size: 8px;
+  --ds-badge-count-size: 24px;
+  --ds-badge-count-padding: 8px;
+  --ds-badge-font-size: 14px;
+}
+
+.ds-badge--primary {
+  --ds-badge-background: var(--ant-color-primary);
+}
+
+.ds-badge--default {
+  --ds-badge-color: var(--ant-color-text);
+  --ds-badge-background: var(--ant-color-text-disabled);
+}
+
+.ds-badge--warning {
+  --ds-badge-background: var(--ant-color-warning);
+}
+
+.ds-badge--danger {
+  --ds-badge-background: var(--ant-color-error);
+}
+
+.ds-badge--success {
+  --ds-badge-background: var(--ant-color-success);
+}
+
+.ds-badge--info {
+  --ds-badge-background: var(--ant-color-info);
+}
+
+.ds-badge--disabled {
+  --ds-badge-color: var(--ant-color-text-disabled);
+  --ds-badge-background: var(--ant-color-bg-layout);
+}

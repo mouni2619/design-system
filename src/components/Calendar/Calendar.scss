@@ -1,0 +1,19 @@
+.ds-calendar-popup {
+  .ant-picker-cell-in-view.ant-picker-cell-today:not(
+    .ant-picker-cell-selected,
+    .ant-picker-cell-range-start,
+    .ant-picker-cell-range-end
+  ) .ant-picker-cell-inner::before {
+    border: 0;
+    border-bottom: 2px solid var(--ant-color-primary);
+    border-radius: 0;
+  }
+
+  .ant-picker-ranges {
+    display: none;
+  }
+}
+
+.ds-calendar-actions .ant-btn {
+  min-width: 66px;
+}

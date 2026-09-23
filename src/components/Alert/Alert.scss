@@ -1,0 +1,92 @@
+.ds-alert {
+  // Public component variables. Consumers can override these globally, within
+  // an application scope, or on an individual Alert class.
+  --ds-alert-width: 330px;
+  --ds-alert-description-gap: var(--ant-margin-xs, 12px);
+
+  width: var(--ds-alert-width);
+
+  // Repeat the Ant Alert class to outrank AntD's runtime-generated status and
+  // typography selectors without resorting to !important.
+  &.ant-alert {
+    .ant-alert-icon,
+    .ant-alert-title,
+    .ant-alert-description {
+      color: var(--ds-alert-color);
+    }
+  }
+
+  &.ant-alert-with-description {
+    &:not(.ant-alert-no-icon) {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: start;
+
+      .ant-alert-section {
+        display: contents;
+      }
+
+      .ant-alert-icon {
+        align-self: center;
+      }
+
+      .ant-alert-title {     
+        margin-bottom: 0;
+      }
+
+      .ant-alert-description {
+        grid-column: 1 / -1;
+        margin-top: var(--ds-alert-description-gap);
+      }
+    }
+  }
+}
+
+.ds-alert.ant-alert.ds-alert--primary,
+.ds-alert.ant-alert.ds-alert--secondary,
+.ds-alert.ant-alert.ds-alert--light,
+.ds-alert.ant-alert.ds-alert--dark {
+  color: var(--ds-alert-color);
+  background-color: var(--ds-alert-background);
+  border-color: var(--ds-alert-border);
+}
+
+.ds-alert--info {
+  --ds-alert-color: var(--ant-color-info);
+}
+
+.ds-alert--success {
+  --ds-alert-color: var(--ant-color-success);
+}
+
+.ds-alert--warning {
+  --ds-alert-color: var(--ant-color-warning);
+}
+
+.ds-alert--error {
+  --ds-alert-color: var(--ant-color-error);
+}
+
+.ds-alert--primary {
+  --ds-alert-color: var(--ant-color-primary);
+  --ds-alert-background: var(--ant-color-primary-bg);
+  --ds-alert-border: var(--ant-color-primary-border);
+}
+
+.ds-alert--secondary {
+  --ds-alert-color: var(--ant-color-text-secondary);
+  --ds-alert-background: var(--ant-color-bg-layout);
+  --ds-alert-border: var(--ant-color-border);
+}
+
+.ds-alert--light {
+  --ds-alert-color: var(--ant-color-text-heading);
+  --ds-alert-background: var(--ant-color-bg-layout);
+  --ds-alert-border: var(--ant-color-border);
+}
+
+.ds-alert--dark {
+  --ds-alert-color: var(--ant-color-text);
+  --ds-alert-background: var(--ant-color-fill);
+  --ds-alert-border: var(--ant-color-border);
+}

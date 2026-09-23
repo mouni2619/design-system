@@ -1,5 +1,10 @@
 import { ThemeColors, Grey } from "@tokens/color";
-import { FontFamily, FontSize, LineHeight } from "@tokens/typography";
+import {
+  FontFamily,
+  FontSize,
+  FontWeight,
+  LineHeight,
+} from "@tokens/typography";
 import { RadiusTokens, BorderWidthTokens } from "@tokens/border";
 import { ShadowGeometry } from "@tokens/shadow";
 import { SpaceTokens } from "@tokens/space";
@@ -128,6 +133,70 @@ export const antdTheme = {
   cssVar: { prefix: "ant" },
 
   components: {
+    Tabs: {
+      cardBg: ThemeColors.white,
+      cardGutter: 0,
+      cardPadding: "11px 16px",
+      colorBorderSecondary: ThemeColors["secondary-emp-5"],
+      horizontalItemGutter: 0,
+      horizontalItemPadding: "12px 16px",
+      inkBarColor: ThemeColors.primary,
+      itemColor: ThemeColors.dark,
+      itemHoverColor: ThemeColors["primary-emp-5"],
+      itemSelectedColor: ThemeColors.primary,
+      titleFontSize: FontSize.h6,
+      borderRadiusLG: RadiusTokens.md,
+    },
+    Spin: {
+      dotSize: 48,
+      dotSizeSM: 48,
+      dotSizeLG: 48,
+      ringSize: 48,
+      ringDotRadius: 2.5,
+      ringRotation: 90,
+      ringDuration: "1.6s",
+      ringPrimaryColor: ThemeColors.primary,
+      ringSecondaryColor: ThemeColors.secondary,
+      ringLightColor: ThemeColors.white,
+      ringDarkColor: ThemeColors.dark,
+      ringSuccessColor: ThemeColors.success,
+      ringWarningColor: ThemeColors.warning,
+      ringInfoColor: ThemeColors.info,
+      ringDangerColor: ThemeColors.danger,
+    },
+    Popover: {
+      innerPadding: 0,
+      titleMinWidth: 0,
+      titleMarginBottom: 0,
+      titlePadding: 0,
+      titleBorderBottom: "none",
+      innerContentPadding: 0,
+      borderRadiusLG: RadiusTokens.md,
+      dropShadowPopover: `drop-shadow(0 0 1px ${ThemeColors["secondary-emp-5"]}) drop-shadow(0 0 1px ${ThemeColors["secondary-emp-5"]})`,
+    },
+    Modal: {
+      contentPadding: 0,
+      headerPadding: "22px 18px",
+      headerMarginBottom: 0,
+      headerBorderBottom: `${BorderWidthTokens[1]}px solid ${ThemeColors["secondary-emp-5"]}`,
+      bodyPadding: "16px 18px",
+      footerPadding: "17px 18px",
+      footerMarginTop: 0,
+      footerBorderTop: `${BorderWidthTokens[1]}px solid ${ThemeColors["secondary-emp-5"]}`,
+      titleFontSize: FontSize.h6,
+      titleLineHeight: LineHeight.h6 / FontSize.h6,
+      titleColor: Grey["gray-800"],
+      boxShadow: "none",
+      borderRadiusLG: RadiusTokens.lg,
+    },
+    Tag: {
+      colorBgContainerDisabled: ThemeColors["disable-emp-2"],
+      colorTextDisabled: ThemeColors["disable-emp-6"],
+    },
+    Card: {
+      cardWidth: 570,
+      colorBorderSecondary: ThemeColors["secondary-emp-5"],
+    },
     Button: {
       // explicitly set in button
       primaryShadow: "none",
@@ -147,6 +216,32 @@ export const antdTheme = {
 
       // Ghost + secondary: same fill on hover.
       textHoverBg: ThemeColors["secondary-emp-3"],
+    },
+    Alert: {
+      borderRadiusLG: RadiusTokens.sm,
+
+      // Control paddings and icon sizing
+      defaultPadding: `${SpaceTokens.xs}px ${SpaceTokens.sm}px`,
+      withDescriptionPadding: `${SpaceTokens.xs}px ${SpaceTokens.sm}px`,
+
+      // Keep icon sized consistently so it aligns on the top line with the title
+      withDescriptionIconSize: FontSize.body,
+      marginXS: SpaceTokens.xs,
+
+      // AntD uses its large font alias for Alert titles with descriptions.
+      // The reference keeps the title and body at the same size.
+      fontSizeLG: FontSize.body,
+    },
+    Table: {
+      headerBg: ThemeColors.white,
+      headerColor: Grey["gray-800"],
+      headerSplitColor: "transparent",
+      borderColor: ThemeColors["secondary-emp-5"],
+      rowHoverBg: ThemeColors.white,
+      fontWeightStrong: FontWeight.medium,
+
+      cellPaddingBlock: SpaceTokens.sm,
+      cellPaddingInline: SpaceTokens.sm,
     },
   },
 };
